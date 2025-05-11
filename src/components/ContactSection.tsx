@@ -1,172 +1,79 @@
-import React, { useState } from 'react';
-import { Send } from 'lucide-react';
-
-interface FormState {
-  name: string;
-  email: string;
-  phone: string;
-  reason: string;
-  message: string;
-}
+import { MessageSquare, Mail } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 
 const ContactSection = () => {
-  const [formState, setFormState] = useState<FormState>({
-    name: '',
-    email: '',
-    phone: '',
-    reason: '',
-    message: ''
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-  const [formStatus, setFormStatus] = useState<{
-    submitted: boolean;
-    success: boolean;
-    message: string;
-  }>({
-    submitted: false,
-    success: false,
-    message: ''
-  });
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormState((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    const currentRef = sectionRef.current;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Here would be the actual form submission to a backend service
-    // For this demo, we'll simulate a successful submission
-    
-    setFormStatus({
-      submitted: true,
-      success: true,
-      message: '¡Gracias! Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.'
-    });
-    
-    // Reset form after submission
-    setFormState({
-      name: '',
-      email: '',
-      phone: '',
-      reason: '',
-      message: ''
-    });
-    
-    // In a real application, you'd handle errors as well
-  };
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
   return (
-    <section id="contact" className="section bg-brand-sand">
-      <div className="container">
-        <h2 className="section-title">Reservar Consulta</h2>
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-soft p-6 md:p-8">
-          {formStatus.submitted ? (
-            <div className={`p-4 rounded-lg ${formStatus.success ? 'bg-brand-green/20' : 'bg-red-100'}`}>
-              <p className="text-center text-lg">{formStatus.message}</p>
-              {formStatus.success && (
-                <button
-                  className="mt-4 mx-auto block primary-button"
-                  onClick={() => setFormStatus({ submitted: false, success: false, message: '' })}
-                >
-                  Enviar otro mensaje
-                </button>
-              )}
+    <section id="contact" className="py-12 sm:py-16 md:py-24 bg-brand-chocolate/10 relative" ref={sectionRef}>
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-b from-brand-beige/20 to-transparent"></div>
+      <div className="absolute -top-10 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-marron/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-caramelo/10 rounded-full blur-3xl"></div>
+      
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <span className={`inline-block text-brand-marron uppercase text-xs sm:text-sm font-medium tracking-wider transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>Envianos tu consulta</span>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron mt-2 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>Contactate con nuestros profesionales</h2>
+        </div>
+        
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+          <div className={`bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-soft flex flex-col items-center text-center transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2 hover:shadow-lg`} style={{ transitionDelay: '300ms' }}>
+            <div className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-brand-tierra mb-4 transition-transform duration-300 hover:scale-110 group">
+              <MessageSquare size={17} className="text-brand-marron transition-transform duration-300 group-hover:scale-110" />
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="form-label">Nombre completo</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formState.name}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                    placeholder="Tu nombre"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                    placeholder="correo@ejemplo.com"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="form-label">Teléfono</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formState.phone}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                    placeholder="+54 9 11 5555-5555"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="reason" className="form-label">Motivo de consulta</label>
-                  <select
-                    id="reason"
-                    name="reason"
-                    value={formState.reason}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                  >
-                    <option value="">Seleccionar motivo</option>
-                    <option value="anxiety">Ansiedad</option>
-                    <option value="depression">Depresión</option>
-                    <option value="couple">Terapia de pareja</option>
-                    <option value="children">Terapia infantil</option>
-                    <option value="other">Otro</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="form-label">Mensaje (opcional)</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formState.message}
-                  onChange={handleChange}
-                  className="form-input min-h-[120px]"
-                  placeholder="Cuéntanos brevemente el motivo de tu consulta"
-                ></textarea>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <button type="submit" className="primary-button w-full md:w-auto flex items-center justify-center">
-                  Enviar consulta
-                  <Send size={18} className="ml-2" />
-                </button>
-                
-                <p className="text-xs text-brand-light mt-4 text-center">
-                  Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos 
-                  para contactarte en relación a tu consulta. Nunca compartiremos tu información con terceros.
-                </p>
-              </div>
-            </form>
-          )}
+            <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-brand-chocolate">WhatsApp</h3>
+            <p className="text-xl sm:text-2xl font-bold text-brand-marron">+54 9 11 5884-6134</p>
+            <a 
+              href="https://wa.me/5491158846134" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="mt-4 sm:mt-6 bg-brand-caramelo text-brand-dark font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-full shadow-soft transition-all duration-300 hover:shadow-md hover:brightness-105 focus:ring-2 focus:ring-brand-caramelo focus:ring-offset-2 focus:outline-none relative overflow-hidden group text-sm sm:text-base"
+            >
+              <span className="absolute inset-0 w-0 bg-gradient-to-r from-brand-caramelo to-brand-tierra rounded-full transition-all duration-500 ease-out group-hover:w-full"></span>
+              <span className="relative z-10">Enviar mensaje</span>
+            </a>
+          </div>
+          
+          <div className={`bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-soft flex flex-col items-center text-center transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2 hover:shadow-lg`} style={{ transitionDelay: '500ms' }}>
+            <div className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-brand-tierra mb-4 transition-transform duration-300 hover:scale-110 group">
+              <Mail size={17} className="text-brand-marron transition-transform duration-300 group-hover:scale-110" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-brand-chocolate">Correo Electrónico</h3>
+            <p className="text-xl sm:text-2xl font-bold text-brand-marron">psi.libre.asoc@gmail.com</p>
+            <a 
+              href="mailto:psi.libre.asoc@gmail.com" 
+              className="mt-4 sm:mt-6 bg-brand-caramelo text-brand-dark font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-full shadow-soft transition-all duration-300 hover:shadow-md hover:brightness-105 focus:ring-2 focus:ring-brand-caramelo focus:ring-offset-2 focus:outline-none relative overflow-hidden group text-sm sm:text-base"
+            >
+              <span className="absolute inset-0 w-0 bg-gradient-to-r from-brand-caramelo to-brand-tierra rounded-full transition-all duration-500 ease-out group-hover:w-full"></span>
+              <span className="relative z-10">Enviar email</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

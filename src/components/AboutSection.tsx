@@ -1,31 +1,90 @@
-import React from 'react';
+import { MessageSquare } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 
 const AboutSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const currentRef = sectionRef.current; // ✅ Copia segura
+
+    if (!currentRef) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef); // ✅ Se usa la misma referencia
+      }
+    };
+  }, []);
+
   return (
-    <section id="about" className="section bg-white">
-      <div className="container">
-        <h2 className="section-title">Sobre Nosotros</h2>
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <p className="text-lg mb-6 leading-relaxed">
-              En <strong>Libre Asociación</strong> creemos en la terapia como un proceso de crecimiento personal. 
-              Nuestro equipo multidisciplinario de psicólogos clínicos ofrece un espacio confidencial y acogedor, 
-              donde cada proceso terapéutico se adapta a las necesidades individuales de cada persona.
+    <section id="about" className="py-12 sm:py-16 md:py-24 bg-white relative" ref={sectionRef}>
+      {/* Decorative elements */}
+      <div className="absolute left-0 top-1/3 w-12 h-12 sm:w-20 sm:h-20 bg-brand-beige rounded-full opacity-40 blur-xl"></div>
+      <div className="absolute right-0 bottom-1/3 w-16 h-16 sm:w-24 sm:h-24 bg-brand-tierra rounded-full opacity-40 blur-xl"></div>
+      
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Conocenos</h2>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-marron mx-auto mb-3 sm:mb-4 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+        </div>
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12">
+          <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+              Somos un equipo de profesionales, egresados de la Facultad de Psicología, de la Universidad de Buenos Aires. 
+              Contamos con una larga trayectoria de trabajo individual y grupal, lo que nos permitió sumar miradas enriquecedoras.
             </p>
-            <p className="text-lg leading-relaxed">
-              Con más de 10 años de experiencia, combinamos diferentes enfoques terapéuticos para acompañarte 
-              en tu camino hacia el bienestar emocional, respetando siempre tus tiempos y procesos.
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+              Abordamos diferentes temáticas, conforme a diversos aportes específicos propios de la formación y 
+              especialización de cada integrante. Esto se traduce en mayores conocimientos y mejores experiencias para nuestro equipo.
             </p>
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+              Nos distinguen la experiencia, la formación y la empatía con la que abordamos los tratamientos 
+              con cada paciente que nos elige.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed text-brand-dark">
+              Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.
+            </p>
+            <div className="mt-6 sm:mt-8">
+              <a 
+                href="https://wa.me/5491158846134" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center bg-brand-marron text-white font-medium py-1.75 sm:py-2.5 px-4 sm:px-6 rounded-full 
+                shadow-md hover:shadow-lg transition-all duration-300 hover:brightness-110
+                relative overflow-hidden group w-full sm:w-auto"
+    
+              >
+                <span className="absolute inset-0 w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <MessageSquare size={17} className="mr-2.5 relative z-10" />
+                <span className="relative z-10 text-sm sm:text-base">Contactanos</span>
+              </a>
+            </div>
           </div>
-          <div className="md:w-1/2">
-            <img
-              src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Equipo de psicólogos de Libre Asociación"
-              className="w-full h-auto rounded-2xl shadow-soft"
-              loading="lazy"
-              width="600"
-              height="400"
-            />
+          <div className={`md:w-1/2 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-tierra to-transparent rounded-xl sm:rounded-2xl blur opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
+              <img
+                src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Equipo de profesionales de Libre Asociación"
+                className="w-full h-auto rounded-xl sm:rounded-2xl shadow-soft transition-all duration-500 group-hover:shadow-lg relative"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+            </div>
           </div>
         </div>
       </div>
