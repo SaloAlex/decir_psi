@@ -42,19 +42,19 @@ const AboutSection = () => {
         </div>
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12">
           <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
               Somos un equipo de profesionales, egresados de la Facultad de Psicología, de la Universidad de Buenos Aires. 
               Contamos con una larga trayectoria de trabajo individual y grupal, lo que nos permitió sumar miradas enriquecedoras.
             </p>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
               Abordamos diferentes temáticas, conforme a diversos aportes específicos propios de la formación y 
               especialización de cada integrante. Esto se traduce en mayores conocimientos y mejores experiencias para nuestro equipo.
             </p>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark">
+            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
               Nos distinguen la experiencia, la formación y la empatía con la que abordamos los tratamientos 
               con cada paciente que nos elige.
             </p>
-            <p className="text-base sm:text-lg leading-relaxed text-brand-dark">
+            <p className="text-base sm:text-lg leading-relaxed text-brand-dark text-left sm:text-justify">
               Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.
             </p>
             <div className="mt-6 sm:mt-8">
@@ -62,14 +62,14 @@ const AboutSection = () => {
                 href="https://wa.me/5491158846134" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center justify-center bg-brand-marron text-white font-medium py-1.75 sm:py-2.5 px-4 sm:px-6 rounded-full 
+                className="flex items-center justify-center bg-brand-marron text-white font-medium py-3 sm:py-2.5 px-6 sm:px-6 rounded-full 
                 shadow-md hover:shadow-lg transition-all duration-300 hover:brightness-110
                 relative overflow-hidden group w-full sm:w-auto"
     
               >
                 <span className="absolute inset-0 w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <MessageSquare size={17} className="mr-2.5 relative z-10" />
-                <span className="relative z-10 text-sm sm:text-base">Contactanos</span>
+                <MessageSquare size={20} className="mr-3 relative z-10" />
+                <span className="relative z-10 text-base">Contactanos</span>
               </a>
             </div>
           </div>

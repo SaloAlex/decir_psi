@@ -240,24 +240,24 @@ const TeamSection = () => {
             </div>
             <button 
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
               aria-label="Anterior profesional"
             >
-              <ChevronLeft size={20} className="text-brand-chocolate" />
+              <ChevronLeft size={24} className="text-brand-chocolate" />
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
               aria-label="Siguiente profesional"
             >
-              <ChevronRight size={20} className="text-brand-chocolate" />
+              <ChevronRight size={24} className="text-brand-chocolate" />
             </button>
           </div>
-          <div className="flex justify-center mt-3 sm:mt-4 space-x-1.5 sm:space-x-2 flex-wrap max-w-xs mx-auto overflow-x-auto py-2">
+          <div className="flex justify-center mt-3 sm:mt-4 space-x-2 sm:space-x-2 flex-wrap max-w-xs mx-auto overflow-x-auto py-2">
             {team.map((_, index) => (
               <button 
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-marron w-3 sm:w-4' : 'bg-brand-tierra'} hover:bg-brand-chocolate`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-marron w-4 sm:w-4' : 'bg-brand-tierra'} hover:bg-brand-chocolate`}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Ver profesional ${index + 1}`}
               ></button>

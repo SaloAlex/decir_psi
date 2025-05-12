@@ -12,12 +12,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
   return (
     <div className="border-b border-brand-chocolate/10 py-4">
       <button
-        className="flex items-center justify-between w-full text-left font-medium text-lg focus:outline-none focus:text-brand-chocolate"
+        className="flex items-center justify-between w-full text-left font-medium text-base md:text-lg focus:outline-none focus:text-brand-chocolate py-2 md:py-1"
         onClick={onClick}
         aria-expanded={isOpen}
       >
         <span>{question}</span>
-        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        {isOpen ? <ChevronUp size={24} className="flex-shrink-0 ml-2" /> : <ChevronDown size={24} className="flex-shrink-0 ml-2" />}
       </button>
       {isOpen && (
         <div className="pt-2 pb-4 text-brand-darkLight">

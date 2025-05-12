@@ -149,28 +149,28 @@ const TestimonialsSection = () => {
 
             <button
               onClick={() => handleManualNavigation((currentIndex - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-20 -ml-1 sm:-ml-4 
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -ml-1 sm:-ml-4 
                         hover:bg-brand-beige transition-all duration-300 transform hover:-translate-x-1"
               aria-label="Testimonio anterior"
             >
-              <ChevronLeft size={20} className="text-brand-chocolate" />
+              <ChevronLeft size={24} className="text-brand-chocolate" />
             </button>
             <button
               onClick={() => handleManualNavigation((currentIndex + 1) % testimonials.length)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-20 -mr-1 sm:-mr-4
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -mr-1 sm:-mr-4
                         hover:bg-brand-beige transition-all duration-300 transform hover:translate-x-1"
               aria-label="Testimonio siguiente"
             >
-              <ChevronRight size={20} className="text-brand-chocolate" />
+              <ChevronRight size={24} className="text-brand-chocolate" />
             </button>
           </div>
 
-          <div className="flex justify-center mt-2 sm:mt-4 space-x-2">
+          <div className="flex justify-center mt-2 sm:mt-4 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`h-2 sm:h-3 rounded-full transition-all duration-300 
-                          ${currentIndex === index ? 'bg-brand-marron w-6 sm:w-8' : 'bg-brand-tierra w-2 sm:w-3'} 
+                className={`h-3 sm:h-3 rounded-full transition-all duration-300 
+                          ${currentIndex === index ? 'bg-brand-marron w-8 sm:w-8' : 'bg-brand-tierra w-3 sm:w-3'} 
                           hover:bg-brand-chocolate`}
                 onClick={() => handleManualNavigation(index)}
                 aria-label={`Ver testimonio ${index + 1}`}
