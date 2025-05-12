@@ -42,7 +42,7 @@ const Navbar = () => {
           {isScrolled ? (
             <>Libre<span className="text-brand-marron">Asociación</span></>
           ) : (
-            <><span className="text-white">Libre</span><span className="text-brand-chocolate">Asociación</span></>
+            <><span className="text-white">Libre</span><span className="text-brand-beige">Asociación</span></>
           )}
         </a>
 
