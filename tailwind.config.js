@@ -5,10 +5,11 @@ export default {
     extend: {
       colors: {
         brand: {
-          pink: '#F5D7DB',
-          green: '#CDE6D0',
-          blue: '#D7E8F6',
-          sand: '#F8F5F2',
+          beige: '#EBCAB1',      // Beige Suave (fondo principal)
+          tierra: '#C9A88D',     // Tierra Suave (color de apoyo)
+          caramelo: '#DDB998',   // Caramelo Claro (botones secundarios)
+          chocolate: '#A97E5F',  // Chocolate Claro (textos destacados)
+          marron: '#855C3F',     // Marrón Intenso (títulos, íconos)
           dark: '#4F4F4F',
           darkLight: '#6D6D6D',
           light: '#9D9D9D',
@@ -22,7 +23,7 @@ export default {
         'soft': '0 4px 12px rgba(0, 0, 0, 0.05)',
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(to bottom right, #F5D7DB, #D7E8F6)',
+        'hero-gradient': 'linear-gradient(to bottom right, #EBCAB1, #C9A88D)',
       },
     },
   },

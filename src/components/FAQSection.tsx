@@ -10,9 +10,9 @@ interface FAQItemProps {
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="faq-item">
+    <div className="border-b border-brand-chocolate/10 py-4">
       <button
-        className="faq-question"
+        className="flex items-center justify-between w-full text-left font-medium text-lg focus:outline-none focus:text-brand-chocolate"
         onClick={onClick}
         aria-expanded={isOpen}
       >
@@ -20,7 +20,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
         {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
       {isOpen && (
-        <div className="faq-answer">
+        <div className="pt-2 pb-4 text-brand-darkLight">
           <p>{answer}</p>
         </div>
       )}
@@ -59,9 +59,9 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="section bg-white">
+    <section id="faq" className="py-16 md:py-24 bg-white">
       <div className="container">
-        <h2 className="section-title">Preguntas Frecuentes</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center text-white">Preguntas Frecuentes</h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <FAQItem

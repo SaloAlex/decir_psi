@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -26,11 +26,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Inicio', href: '#home' },
-    { name: 'Nosotros', href: '#about' },
+    { name: 'Conocenos', href: '#about' },
     { name: 'Especialidades', href: '#specialties' },
-    { name: 'Equipo', href: '#team' },
-    { name: 'Testimonios', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
     { name: 'Contacto', href: '#contact' },
   ];
 
@@ -42,7 +39,11 @@ const Navbar = () => {
     >
       <div className="container flex justify-between items-center">
         <a href="#home" className="text-2xl font-poppins font-semibold">
-          Libre<span className="text-brand-dark">Asociación</span>
+          {isScrolled ? (
+            <>Libre<span className="text-brand-marron">Asociación</span></>
+          ) : (
+            <><span className="text-white">Libre</span><span className="text-brand-chocolate">Asociación</span></>
+          )}
         </a>
 
         {/* Desktop Menu */}
@@ -51,19 +52,20 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-brand-dark hover:text-brand-darkLight transition-colors"
+              className={`transition-colors ${
+                isScrolled 
+                  ? "text-brand-chocolate hover:text-brand-marron" 
+                  : "text-white hover:text-brand-beige font-medium"
+              }`}
             >
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="primary-button">
-            Reservar Consulta
-          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-brand-dark"
+          className={`md:hidden ${isScrolled ? 'text-brand-chocolate' : 'text-white'}`}
           onClick={toggleMenu}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -78,19 +80,12 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-brand-dark hover:text-brand-darkLight transition-colors py-2"
+              className="text-brand-chocolate hover:text-brand-marron transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="primary-button text-center"
-            onClick={() => setIsOpen(false)}
-          >
-            Reservar Consulta
-          </a>
         </div>
       )}
     </nav>

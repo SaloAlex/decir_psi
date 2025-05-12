@@ -1,56 +1,165 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Importar las imágenes locales
+import florenciaDelGrosso from '../assets/Florencia-del-Grosso.webp';
+import vivianaDeMarinis from '../assets/Viviana-De-Marinis.webp';
+import emilceNajmanovich from '../assets/Emilce-Najmanovich.webp';
+import paolaBoella from '../assets/Paola-Boella.webp';
+import solGiovanetti from '../assets/Sol-Giovanetti.webp';
+import vivianaKostoff from '../assets/Viviana-B-Kostoff.webp';
+import juanIgnacioDiez from '../assets/Juan-Ignacio-Diez.webp';
+import roxanaNijamin from '../assets/Roxana-Alejandra-Nijamin.webp';
+import silvinaIsabettini from '../assets/Silvina-Isabettini.webp';
+import mercedesArias from '../assets/Mercedes-Arias.webp';
+import mailenDiLascio from '../assets/Mailen-Di-Lascio.webp';
+import juanMartinZampini from '../assets/Juan-Martin-Zampini.webp';
 
 interface TeamMemberProps {
   name: string;
   license: string;
-  expertise: string;
+  education: string;
+  specialties: string;
   image: string;
+  delay?: number;
+  isVisible?: boolean;
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({ name, license, expertise, image }) => {
+const TeamMember: React.FC<TeamMemberProps> = ({ name, license, education, specialties, image, delay = 0, isVisible = true }) => {
   return (
-    <div className="flex flex-col items-center p-4">
-      <div className="w-40 h-40 mb-4 rounded-full overflow-hidden">
+    <div 
+      className={`flex flex-col items-center p-3 sm:p-4 bg-white rounded-lg shadow-soft transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:shadow-md group`}
+      style={{ transitionDelay: `${delay * 100}ms` }}
+    >
+      <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 mb-3 sm:mb-4 rounded-full overflow-hidden transition-all duration-300 group-hover:shadow-md">
         <img 
           src={image} 
           alt={`${name} - Psicólogo`} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy" 
         />
       </div>
-      <h3 className="text-xl font-semibold">{name}</h3>
-      <p className="text-brand-darkLight">{license}</p>
-      <p className="text-center mt-2">{expertise}</p>
+      <h3 className="text-lg sm:text-xl font-semibold text-brand-chocolate text-center transition-colors duration-300 group-hover:text-brand-marron">{name}</h3>
+      <p className="text-brand-marron font-medium mb-1 sm:mb-2 text-center text-sm sm:text-base">{license}</p>
+      <p className="text-brand-dark text-xs sm:text-sm font-medium text-center">{education}</p>
+      <div className="w-10 h-1 bg-brand-caramelo my-2 sm:my-3 transition-all duration-300 group-hover:w-16"></div>
+      <p className="text-center text-brand-darkLight text-xs sm:text-sm line-clamp-3 md:line-clamp-none">{specialties}</p>
     </div>
   );
 };
 
 const TeamSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = sectionRef.current;
+    
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   const team = [
     {
-      name: "Dra. Laura Martínez",
-      license: "MP 12345",
-      expertise: "Especialista en Terapia Cognitivo Conductual y Ansiedad",
-      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "Lic. Florencia Del Grosso",
+      license: "M.N. 36663",
+      education: "U.B.A",
+      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. En Niñez y Adolescencia; Esp. En Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica",
+      image: florenciaDelGrosso
     },
     {
-      name: "Lic. Carlos Rodríguez",
-      license: "MP 23456",
-      expertise: "Especialista en Terapia Sistémica y Parejas",
-      image: "https://images.pexels.com/photos/5793953/pexels-photo-5793953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "Lic. Viviana De Marinis",
+      license: "M.N. 22930",
+      education: "U.B.A",
+      specialties: "Psicóloga Clínica-Psicodramatista; Esp. Clínica: Jóvenes, Adultos y Adultos Mayores; Esp. Orientación a padres.",
+      image: vivianaDeMarinis
     },
     {
-      name: "Dra. Ana González",
-      license: "MP 34567",
-      expertise: "Especialista en Infancias y Adolescencias",
-      image: "https://images.pexels.com/photos/4498318/pexels-photo-4498318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "Lic. Emilce Najmanovich",
+      license: "M.N. 32041",
+      education: "U.B.A",
+      specialties: "Psicoanalista; Clínica Psicológica.",
+      image: emilceNajmanovich
     },
     {
-      name: "Lic. Martín Sánchez",
-      license: "MP 45678",
-      expertise: "Especialista en Psicoanálisis y Depresión",
-      image: "https://images.pexels.com/photos/5905484/pexels-photo-5905484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "Lic. Paola Boella",
+      license: "M.N. 41914",
+      education: "U.B.A",
+      specialties: "Psicóloga Clínica de Adultos, Adolescentes y Parejas; Psicoanalista; Posgrados en Psicoanálisis en Fundación Tiempo e Institución Nuevo Centro; Psicóloga Clínica de Adultos en Fundación Tiempo.",
+      image: paolaBoella
+    },
+    {
+      name: "Lic. María del Sol Giovanetti",
+      license: "M.N. 42201",
+      education: "U.B.A",
+      specialties: "Psicóloga; Clínica de Adultos y Adolescentes; Terapia de Parejas; Orientación a Padres.",
+      image: solGiovanetti
+    },
+    {
+      name: "Lic. Viviana B. Kostoff",
+      license: "M.N. 34399",
+      education: "U.B.A",
+      specialties: "Psicóloga Clínica de Adultos y Adolescentes.",
+      image: vivianaKostoff
+    },
+    {
+      name: "Lic. Juan Ignacio Diez",
+      license: "M.N. 60.859",
+      education: "U.B.A",
+      specialties: "Psicólogo; Psicoanalista; Esp. Adolescentes, adultos; Terapia de parejas.",
+      image: juanIgnacioDiez
+    },
+    {
+      name: "Lic. Roxana A. Nijamin",
+      license: "M.N. 22211",
+      education: "U.B.A",
+      specialties: "Especialidad Terapia de Pareja; Adultos; Adolescentes; Psicología Laboral.",
+      image: roxanaNijamin
+    },
+    {
+      name: "Lic. Silvina Isabettini",
+      license: "M.N. 36826",
+      education: "U.B.A",
+      specialties: "Psicóloga; Clínica de Niños y Adolescentes; Clínica de Adultos.",
+      image: silvinaIsabettini
+    },
+    {
+      name: "Lic. María Mercedes Aira",
+      license: "M.N. 29557",
+      education: "U.B.A",
+      specialties: "Psicoanalista; Psicoterapeuta; Clínica de Adultos y Parejas.",
+      image: mercedesArias
+    },
+    {
+      name: "Lic. Mailen Di Lascio Troncoso",
+      license: "M.N. 85137",
+      education: "U.B.A",
+      specialties: "Psicóloga Clínica de niños, adolescentes.",
+      image: mailenDiLascio
+    },
+    {
+      name: "Lic. Juan Martin Zampini",
+      license: "M.N. 84037",
+      education: "U.B.A",
+      specialties: "Psicólogo. Clínica de adolescentes y adultos. Bilingüe.",
+      image: juanMartinZampini
     }
   ];
 
@@ -63,112 +172,92 @@ const TeamSection = () => {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex + 1 >= team.length ? 0 : prevIndex + 1
+      prevIndex + itemsPerPage.mobile >= team.length ? 0 : prevIndex + itemsPerPage.mobile
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex - 1 < 0 ? team.length - 1 : prevIndex - 1
+      prevIndex - itemsPerPage.mobile < 0 ? team.length - itemsPerPage.mobile : prevIndex - itemsPerPage.mobile
     );
   };
 
-  // For larger screens, we'll show the complete team
-  // For mobile, we'll implement a carousel
-
   return (
-    <section id="team" className="section bg-white">
-      <div className="container">
-        <h2 className="section-title">Equipo Profesional</h2>
+    <section id="team" className="py-12 sm:py-16 md:py-24 bg-brand-beige/30 relative" ref={sectionRef}>
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-caramelo/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-tierra/20 rounded-full blur-2xl"></div>
+      
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="text-center mb-6 sm:mb-10">
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nuestro Equipo de Profesionales</h2>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-marron mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+        </div>
         
-        {/* Desktop View - All team members at once */}
-        <div className="hidden lg:grid grid-cols-4 gap-6">
+        {/* Desktop View - Grid layout for larger screens */}
+        <div className="hidden lg:grid grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           {team.map((member, index) => (
             <TeamMember
               key={index}
               name={member.name}
               license={member.license}
-              expertise={member.expertise}
+              education={member.education}
+              specialties={member.specialties}
               image={member.image}
+              delay={index % 4}
+              isVisible={isVisible}
             />
           ))}
         </div>
         
-        {/* Tablet View - 2 at a time */}
-        <div className="hidden md:block lg:hidden">
-          <div className="relative">
-            <div className="flex">
-              {team.slice(currentIndex, currentIndex + itemsPerPage.tablet).map((member, index) => (
-                <div key={index} className="w-1/2">
-                  <TeamMember
-                    name={member.name}
-                    license={member.license}
-                    expertise={member.expertise}
-                    image={member.image}
-                  />
-                </div>
-              ))}
-              {currentIndex + itemsPerPage.tablet >= team.length && 
-                team.slice(0, (currentIndex + itemsPerPage.tablet) % team.length).map((member, index) => (
-                  <div key={index + team.length} className="w-1/2">
-                    <TeamMember
-                      name={member.name}
-                      license={member.license}
-                      expertise={member.expertise}
-                      image={member.image}
-                    />
-                  </div>
-                ))
-              }
-            </div>
-            <button 
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-soft z-10"
-              aria-label="Anterior profesional"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-soft z-10"
-              aria-label="Siguiente profesional"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+        {/* Tablet View - Grid with 2 columns */}
+        <div className="hidden md:grid lg:hidden grid-cols-2 gap-4 sm:gap-6">
+          {team.map((member, index) => (
+            <TeamMember
+              key={index}
+              name={member.name}
+              license={member.license}
+              education={member.education}
+              specialties={member.specialties}
+              image={member.image}
+              delay={index % 3}
+              isVisible={isVisible}
+            />
+          ))}
         </div>
         
-        {/* Mobile View - 1 at a time */}
-        <div className="md:hidden">
-          <div className="relative">
+        {/* Mobile View - Carousel with 1 at a time */}
+        <div className={`md:hidden transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="relative px-8 sm:px-10">
             <div className="flex justify-center">
               <TeamMember
                 name={team[currentIndex].name}
                 license={team[currentIndex].license}
-                expertise={team[currentIndex].expertise}
+                education={team[currentIndex].education}
+                specialties={team[currentIndex].specialties}
                 image={team[currentIndex].image}
               />
             </div>
             <button 
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-soft z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
               aria-label="Anterior profesional"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} className="text-brand-chocolate" />
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-soft z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
               aria-label="Siguiente profesional"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} className="text-brand-chocolate" />
             </button>
           </div>
-          <div className="flex justify-center mt-4 space-x-2">
+          <div className="flex justify-center mt-3 sm:mt-4 space-x-1.5 sm:space-x-2 flex-wrap max-w-xs mx-auto overflow-x-auto py-2">
             {team.map((_, index) => (
               <button 
                 key={index}
-                className={`w-2 h-2 rounded-full ${currentIndex === index ? 'bg-brand-dark' : 'bg-brand-light'}`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-marron w-3 sm:w-4' : 'bg-brand-tierra'} hover:bg-brand-chocolate`}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Ver profesional ${index + 1}`}
               ></button>
