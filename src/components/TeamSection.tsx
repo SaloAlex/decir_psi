@@ -39,10 +39,10 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, license, education, speci
           loading="lazy" 
         />
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold text-brand-chocolate text-center transition-colors duration-300 group-hover:text-brand-marron">{name}</h3>
-      <p className="text-brand-marron font-medium mb-1 sm:mb-2 text-center text-sm sm:text-base">{license}</p>
+      <h3 className="text-lg sm:text-xl font-semibold text-brand-primary text-center transition-colors duration-300 group-hover:text-brand-highlight">{name}</h3>
+      <p className="text-brand-highlight font-medium mb-1 sm:mb-2 text-center text-sm sm:text-base">{license}</p>
       <p className="text-brand-dark text-xs sm:text-sm font-medium text-center">{education}</p>
-      <div className="w-10 h-1 bg-brand-caramelo my-2 sm:my-3 transition-all duration-300 group-hover:w-16"></div>
+      <div className="w-10 h-1 bg-brand-accent my-2 sm:my-3 transition-all duration-300 group-hover:w-16"></div>
       <p className="text-center text-brand-darkLight text-xs sm:text-sm line-clamp-3 md:line-clamp-none">{specialties}</p>
     </div>
   );
@@ -183,15 +183,15 @@ const TeamSection = () => {
   };
 
   return (
-    <section id="team" className="py-12 sm:py-16 md:py-24 bg-brand-beige/30 relative" ref={sectionRef}>
+    <section id="team" className="py-12 sm:py-16 md:py-24 bg-brand-secondary/30 relative" ref={sectionRef}>
       {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-caramelo/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-tierra/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-20 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-background/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-accent/20 rounded-full blur-2xl"></div>
       
       <div className="container relative z-10 px-4 sm:px-6">
         <div className="text-center mb-6 sm:mb-10">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nuestro Equipo de Profesionales</h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-marron mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nuestro Equipo de Profesionales</h2>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
         </div>
         
         {/* Desktop View - Grid layout for larger screens */}
@@ -240,24 +240,25 @@ const TeamSection = () => {
             </div>
             <button 
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-secondary transition-colors duration-300"
               aria-label="Anterior profesional"
             >
-              <ChevronLeft size={24} className="text-brand-chocolate" />
+              <ChevronLeft size={24} className="text-brand-primary" />
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-beige transition-colors duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-secondary transition-colors duration-300"
               aria-label="Siguiente profesional"
             >
-              <ChevronRight size={24} className="text-brand-chocolate" />
+              <ChevronRight size={24} className="text-brand-primary" />
             </button>
           </div>
+          
           <div className="flex justify-center mt-3 sm:mt-4 space-x-2 sm:space-x-2 flex-wrap max-w-xs mx-auto overflow-x-auto py-2">
             {team.map((_, index) => (
               <button 
                 key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-marron w-4 sm:w-4' : 'bg-brand-tierra'} hover:bg-brand-chocolate`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-primary w-4 sm:w-4' : 'bg-brand-accent'} hover:bg-brand-highlight`}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Ver profesional ${index + 1}`}
               ></button>

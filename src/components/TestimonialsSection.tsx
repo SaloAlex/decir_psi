@@ -22,15 +22,15 @@ const Testimonial: React.FC<TestimonialProps> = ({ text, author, status, delay =
       style={{ transitionDelay: `${delay * 100}ms` }}
     >
       <div className="relative overflow-hidden">
-        <div className="flex justify-center text-brand-marron mb-4 sm:mb-6">
+        <div className="flex justify-center text-brand-primary mb-4 sm:mb-6">
           <Quote size={32} className="opacity-80" />
         </div>
         <p className="text-base sm:text-lg mb-4 sm:mb-6 italic text-brand-dark leading-relaxed text-center">{text}</p>
         <div className="flex justify-center mb-4">
-          <StarIcon size={20} className="text-brand-caramelo" />
+          <StarIcon size={20} className="text-brand-accent" />
         </div>
-        <div className="w-10 sm:w-12 h-1 bg-brand-caramelo mx-auto my-3 sm:my-4 transition-all duration-300 ease-in-out hover:w-16 hover:bg-brand-chocolate"></div>
-        <p className="text-center font-medium text-brand-chocolate">{author}</p>
+        <div className="w-10 sm:w-12 h-1 bg-brand-accent mx-auto my-3 sm:my-4 transition-all duration-300 ease-in-out hover:w-16 hover:bg-brand-primary"></div>
+        <p className="text-center font-medium text-brand-primary">{author}</p>
       </div>
     </div>
   );
@@ -119,17 +119,17 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-12 sm:py-16 md:py-24 bg-brand-caramelo/10 relative" ref={sectionRef}>
+    <section id="testimonials" className="py-12 sm:py-16 md:py-24 bg-brand-background/70 relative" ref={sectionRef}>
       {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-tierra/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-20 h-20 sm:w-32 sm:h-32 bg-brand-marron/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-20 h-20 sm:w-32 sm:h-32 bg-brand-highlight/10 rounded-full blur-3xl"></div>
 
       <div className="container relative z-10 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Lo que dicen nuestros pacientes
           </h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-marron mx-auto mb-3 sm:mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-3 sm:mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
         </div>
 
         <div className={`max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`} style={{ transitionDelay: '400ms' }}>
@@ -150,18 +150,18 @@ const TestimonialsSection = () => {
             <button
               onClick={() => handleManualNavigation((currentIndex - 1 + testimonials.length) % testimonials.length)}
               className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -ml-1 sm:-ml-4 
-                        hover:bg-brand-beige transition-all duration-300 transform hover:-translate-x-1"
+                        hover:bg-brand-secondary transition-all duration-300 transform hover:-translate-x-1"
               aria-label="Testimonio anterior"
             >
-              <ChevronLeft size={24} className="text-brand-chocolate" />
+              <ChevronLeft size={24} className="text-brand-primary" />
             </button>
             <button
               onClick={() => handleManualNavigation((currentIndex + 1) % testimonials.length)}
               className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -mr-1 sm:-mr-4
-                        hover:bg-brand-beige transition-all duration-300 transform hover:translate-x-1"
+                        hover:bg-brand-secondary transition-all duration-300 transform hover:translate-x-1"
               aria-label="Testimonio siguiente"
             >
-              <ChevronRight size={24} className="text-brand-chocolate" />
+              <ChevronRight size={24} className="text-brand-primary" />
             </button>
           </div>
 
@@ -170,8 +170,8 @@ const TestimonialsSection = () => {
               <button
                 key={index}
                 className={`h-3 sm:h-3 rounded-full transition-all duration-300 
-                          ${currentIndex === index ? 'bg-brand-marron w-8 sm:w-8' : 'bg-brand-tierra w-3 sm:w-3'} 
-                          hover:bg-brand-chocolate`}
+                          ${currentIndex === index ? 'bg-brand-primary w-8 sm:w-8' : 'bg-brand-accent w-3 sm:w-3'} 
+                          hover:bg-brand-highlight`}
                 onClick={() => handleManualNavigation(index)}
                 aria-label={`Ver testimonio ${index + 1}`}
               ></button>
