@@ -5,11 +5,19 @@ export default {
     extend: {
       colors: {
         brand: {
-          beige: '#EBCAB1',      // Beige Suave (fondo principal)
-          tierra: '#C9A88D',     // Tierra Suave (color de apoyo)
-          caramelo: '#DDB998',   // Caramelo Claro (botones secundarios)
-          chocolate: '#A97E5F',  // Chocolate Claro (textos destacados)
-          marron: '#855C3F',     // Marrón Intenso (títulos, íconos)
+          primary: '#b03648',    // Color principal (rojo profundo)
+          secondary: '#eaccad',  // Color secundario (beige claro)
+          accent: '#e8c39e',     // Color de acento
+          background: '#f3dbc3', // Fondo principal
+          highlight: '#c02741',  // Color llamativo
+          softAccent: '#d06b79', // Acento suave
+
+          // Mantenemos los nombres anteriores pero con los nuevos valores para compatibilidad
+          beige: '#eaccad',      // Actualizado al nuevo beige claro (secondary)
+          tierra: '#e8c39e',     // Actualizado al nuevo acento
+          caramelo: '#f3dbc3',   // Actualizado al nuevo fondo 
+          chocolate: '#b03648',  // Actualizado al nuevo color principal
+          marron: '#c02741',     // Actualizado al nuevo color llamativo
           dark: '#4F4F4F',
           darkLight: '#6D6D6D',
           light: '#9D9D9D',
@@ -23,7 +31,7 @@ export default {
         'soft': '0 4px 12px rgba(0, 0, 0, 0.05)',
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(to bottom right, #EBCAB1, #C9A88D)',
+        'hero-gradient': 'linear-gradient(to bottom right, #eaccad, #e8c39e)',
       },
     },
   },

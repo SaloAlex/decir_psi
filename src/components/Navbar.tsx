@@ -40,9 +40,9 @@ const Navbar = () => {
       <div className="container flex justify-between items-center">
         <a href="#home" className="text-2xl font-poppins font-semibold">
           {isScrolled ? (
-            <>Libre<span className="text-brand-marron">Asociación</span></>
+            <>Libre<span className="text-brand-primary">Asociación</span></>
           ) : (
-            <><span className="text-white">Libre</span><span className="text-brand-beige">Asociación</span></>
+            <><span className="text-white">Libre</span><span className="text-brand-secondary">Asociación</span></>
           )}
         </a>
 
@@ -54,8 +54,8 @@ const Navbar = () => {
               href={link.href}
               className={`transition-colors ${
                 isScrolled 
-                  ? "text-brand-chocolate hover:text-brand-marron" 
-                  : "text-white hover:text-brand-beige font-medium"
+                  ? "text-brand-primary hover:text-brand-highlight" 
+                  : "text-white hover:text-brand-secondary font-medium"
               }`}
             >
               {link.name}
@@ -65,7 +65,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden ${isScrolled ? 'text-brand-chocolate' : 'text-white'}`}
+          className={`md:hidden ${isScrolled ? 'text-brand-primary' : 'text-white'}`}
           onClick={toggleMenu}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -80,7 +80,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-brand-chocolate hover:text-brand-marron transition-colors py-2"
+              className="text-brand-primary hover:text-brand-highlight transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               {link.name}

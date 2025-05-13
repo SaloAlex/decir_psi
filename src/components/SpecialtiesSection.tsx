@@ -12,7 +12,7 @@ interface SpecialtyCardProps {
 const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ title, description, imageSrc, imageAlt, delay, isVisible }) => {
   return (
     <div 
-      className={`bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-soft transition-all duration-700 hover:shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 hover:bg-gradient-to-b hover:from-white hover:to-brand-beige/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-soft transition-all duration-700 hover:shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 hover:bg-gradient-to-b hover:from-white hover:to-brand-secondary/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${delay * 100}ms` }}
     >
       <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 sm:mb-6 overflow-hidden rounded-full transition-transform duration-300 hover:scale-105 shadow-md">
@@ -23,7 +23,7 @@ const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ title, description, image
           loading="lazy"
         />
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-brand-chocolate">{title}</h3>
+      <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-brand-primary">{title}</h3>
       <p className="text-sm sm:text-base text-brand-darkLight">{description}</p>
     </div>
   );
@@ -85,15 +85,15 @@ const SpecialtiesSection = () => {
   ];
 
   return (
-    <section id="specialties" className="py-12 sm:py-16 md:py-24 bg-brand-beige/50 relative" ref={sectionRef}>
+    <section id="specialties" className="py-12 sm:py-16 md:py-24 bg-brand-secondary/50 relative" ref={sectionRef}>
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-brand-caramelo/20 rounded-full blur-2xl"></div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-40 sm:h-40 bg-brand-tierra/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-brand-background/20 rounded-full blur-2xl"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-2xl"></div>
       
       <div className="container relative z-10 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-marron mb-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nos especializamos en</h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-marron mx-auto mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary mb-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nos especializamos en</h2>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {specialties.map((specialty, index) => (
