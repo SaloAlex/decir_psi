@@ -6,7 +6,7 @@ const AboutSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const currentRef = sectionRef.current; // ✅ Copia segura
+    const currentRef = sectionRef.current;
 
     if (!currentRef) return;
 
@@ -24,7 +24,7 @@ const AboutSection = () => {
 
     return () => {
       if (currentRef) {
-        observer.unobserve(currentRef); // ✅ Se usa la misma referencia
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -42,21 +42,16 @@ const AboutSection = () => {
         </div>
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12">
           <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
-              Cada profesional de nuestro equipo trabaja de manera individual, con su propio estilo y formación, compartiendo una misma lógica de trabajo: priorizar la singularidad de cada persona a acompañar y construir juntos un espacio donde lo que duele puede ser dicho y pensado.
-            </p>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
-              Abordamos diferentes temáticas, conforme a diversos aportes específicos propios de la formación y 
-              especialización de cada integrante. Esto se traduce en mayores conocimientos y mejores experiencias para nuestro equipo.
-            </p>
-            <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
-              Nos distinguen la experiencia, la formación y la empatía con la que abordamos los tratamientos 
-              con cada paciente que nos elige.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed text-brand-dark text-left sm:text-justify">
-              Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.
-            </p>
-            <div className="mt-6 sm:mt-8">
+            <div className="space-y-6">
+              <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-brand-dark text-left sm:text-justify">
+                Cada profesional de nuestro equipo trabaja de manera individual, con su propio estilo y formación,
+                <span className="font-medium text-brand-marron"> compartiendo una misma lógica de trabajo:</span>
+              </p>
+              <p className="text-lg sm:text-xl italic font-normal leading-relaxed text-brand-dark text-left sm:text-justify pl-4 border-l-4 border-brand-marron/30">
+                Priorizar la singularidad de cada persona, acompañar y construir juntos un espacio donde lo que duele puede ser dicho y pensado.
+              </p>
+            </div>
+            <div className="mt-8 sm:mt-10">
               <a 
                 href="https://wa.me/5491158846134" 
                 target="_blank" 
@@ -64,7 +59,6 @@ const AboutSection = () => {
                 className="flex items-center justify-center bg-brand-marron text-white font-medium py-3 sm:py-2.5 px-6 sm:px-6 rounded-full 
                 shadow-md hover:shadow-lg transition-all duration-300 hover:brightness-110
                 relative overflow-hidden group w-full sm:w-auto"
-    
               >
                 <span className="absolute inset-0 w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <MessageSquare size={20} className="mr-3 relative z-10" />

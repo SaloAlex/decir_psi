@@ -38,11 +38,17 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex justify-between items-center">
-        <a href="#home" className="text-2xl font-poppins font-semibold">
+        <a href="#home" className="text-2xl font-poppins font-semibold flex items-center">
           {isScrolled ? (
-            <>Libre<span className="text-brand-primary">Asociación</span></>
+            <>
+              <img src="/logo.svg" alt="AtencionPsi Logo" className="h-10 w-10 mr-2" />
+              <span>Atencion<span className="text-brand-primary font-bold">Psi</span></span>
+            </>
           ) : (
-            <><span className="text-white">Libre</span><span className="text-brand-secondary">Asociación</span></>
+            <>
+              <img src="/logo.svg" alt="AtencionPsi Logo" className="h-10 w-10 mr-2" />
+              <span className="text-white">Atencion<span className="text-brand-secondary font-bold">Psi</span></span>
+            </>
           )}
         </a>
 

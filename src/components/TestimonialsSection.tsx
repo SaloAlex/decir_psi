@@ -1,40 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote, StarIcon } from 'lucide-react';
-
-interface TestimonialProps {
-  text: string;
-  author: string;
-  status: 'entering' | 'active' | 'exiting';
-  delay?: number;
-}
-
-const Testimonial: React.FC<TestimonialProps> = ({ text, author, status, delay = 0 }) => {
-  // Determinar las clases según el estado del testimonio
-  const stateClasses = {
-    entering: 'opacity-0 translate-x-20 scale-95',
-    active: 'opacity-100 translate-x-0 scale-100',
-    exiting: 'opacity-0 -translate-x-20 scale-95'
-  };
-
-  return (
-    <div
-      className={`bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl transition-all duration-700 transform ${stateClasses[status]} hover:shadow-lg shadow-soft absolute top-0 left-0 w-full`}
-      style={{ transitionDelay: `${delay * 100}ms` }}
-    >
-      <div className="relative overflow-hidden">
-        <div className="flex justify-center text-brand-primary mb-4 sm:mb-6">
-          <Quote size={32} className="opacity-80" />
-        </div>
-        <p className="text-base sm:text-lg mb-4 sm:mb-6 italic text-brand-dark leading-relaxed text-center">{text}</p>
-        <div className="flex justify-center mb-4">
-          <StarIcon size={20} className="text-brand-accent" />
-        </div>
-        <div className="w-10 sm:w-12 h-1 bg-brand-accent mx-auto my-3 sm:my-4 transition-all duration-300 ease-in-out hover:w-16 hover:bg-brand-primary"></div>
-        <p className="text-center font-medium text-brand-primary">{author}</p>
-      </div>
-    </div>
-  );
-};
 
 const TestimonialsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,25 +31,32 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      text: "La terapia en Libre Asociación cambió mi vida. Después de meses lidiando con ansiedad, finalmente encontré las herramientas para manejarla efectivamente.",
-      author: "María L."
+      text: "Llegué sin saber muy bien qué me pasaba, solo con angustia y cansancio. Encontré un espacio donde pude empezar a poner en palabras cosas que llevaba años callando.",
+      author: "Mariana G., 34 años"
     },
     {
-      text: "La terapia de pareja nos ayudó a mejorar nuestra comunicación y a entendernos mejor. Ahora tenemos herramientas para resolver nuestros conflictos de manera saludable.",
-      author: "Juan y Carla"
+      text: "Había probado otras terapias pero nunca me sentí tan escuchado sin sentirme juzgado. Poder hablar de mis ataques de pánico cambió mi forma de estar en el mundo.",
+      author: "Lucas D., 29 años"
     },
     {
-      text: "Como madre, estaba preocupada por los cambios de comportamiento de mi hijo. La terapia infantil le ha ayudado a expresar sus emociones y a sentirse más seguro.",
-      author: "Patricia G."
+      text: "Me ayudó a entender mi relación con la comida y, sobre todo, conmigo misma. El espacio fue cálido, respetuoso y sin presiones.",
+      author: "Sol A., 22 años"
     },
     {
-      text: "Agradezco profundamente el acompañamiento terapéutico durante mi proceso de duelo. Me ayudó a transitar el dolor y a encontrar un nuevo equilibrio emocional.",
-      author: "Roberto M."
+      text: "No fue fácil empezar, pero el acompañamiento constante y profesional hizo toda la diferencia. Hoy puedo decir que volví a sentirme en movimiento.",
+      author: "Ezequiel R., 41 años"
+    },
+    {
+      text: "Fui por una crisis puntual y terminé descubriendo mucho más. Me sentí cuidada desde el primer encuentro.",
+      author: "Ana B., 38 años"
+    },
+    {
+      text: "Mi hijo empezó con muchas dificultades para expresar lo que sentía. Hoy lo vemos más tranquilo, con más recursos para enfrentar situaciones que antes lo desbordaban.",
+      author: "Mamá de Santi, 7 años"
     }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [previousIndex, setPreviousIndex] = useState(-1);
   const [autoplay, setAutoplay] = useState(true);
 
   useEffect(() => {
@@ -92,7 +64,6 @@ const TestimonialsSection = () => {
 
     if (autoplay) {
       interval = window.setInterval(() => {
-        setPreviousIndex(currentIndex);
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
       }, 5000);
     }
@@ -103,7 +74,6 @@ const TestimonialsSection = () => {
   }, [autoplay, testimonials.length, currentIndex]);
 
   const handleManualNavigation = (index: number) => {
-    setPreviousIndex(currentIndex);
     setCurrentIndex(index);
     setAutoplay(false);
 
@@ -111,70 +81,86 @@ const TestimonialsSection = () => {
     setTimeout(() => setAutoplay(true), 10000);
   };
 
-  // Determinar el estado de cada testimonio para la animación
-  const getTestimonialStatus = (index: number): 'entering' | 'active' | 'exiting' => {
-    if (index === currentIndex) return 'active';
-    if (index === previousIndex) return 'exiting';
-    return 'entering';
-  };
-
   return (
-    <section id="testimonials" className="py-12 sm:py-16 md:py-24 bg-brand-background/70 relative" ref={sectionRef}>
+    <section id="testimonials" className="py-12 sm:py-16 md:py-24 bg-brand-background/70 relative overflow-hidden" ref={sectionRef}>
       {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-20 h-20 sm:w-32 sm:h-32 bg-brand-highlight/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-20 h-20 sm:w-32 sm:h-32 bg-brand-highlight/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
       <div className="container relative z-10 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Lo que dicen nuestros pacientes
           </h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-3 sm:mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
+          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-3 sm:mb-4 transition-all duration-700 ease-out delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
         </div>
 
-        <div className={`max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`} style={{ transitionDelay: '400ms' }}>
-          <div className="relative h-64 sm:h-72 md:h-80 px-2 sm:px-4 mb-6 sm:mb-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`${index === currentIndex || index === previousIndex ? 'block' : 'hidden'} h-full`}
-              >
-                <Testimonial
-                  text={testimonial.text}
-                  author={testimonial.author}
-                  status={getTestimonialStatus(index)}
-                />
+        {/* Vista Desktop */}
+        <div className="hidden md:block">
+          <div className={`max-w-3xl mx-auto transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
+            <div className="relative h-64 sm:h-72">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`${index === currentIndex ? 'block' : 'hidden'}`}
+                >
+                  <div className="bg-white p-6 rounded-xl shadow-soft">
+                    <Quote className="text-brand-primary mb-4" size={32} />
+                    <p className="text-lg text-brand-dark mb-4 italic">{testimonial.text}</p>
+                    <div className="flex items-center justify-center">
+                      <StarIcon className="text-brand-accent" size={20} />
+                    </div>
+                    <p className="text-brand-primary font-medium mt-4">{testimonial.author}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Vista Mobile */}
+        <div className="block md:hidden">
+          <div className="relative h-[400px]">
+            <div className="transition-all duration-500 ease-in-out">
+              <div className="bg-white p-5 rounded-xl shadow-soft">
+                <Quote className="text-brand-primary mb-4" size={24} />
+                <p className="text-base text-brand-dark mb-4 italic">{testimonials[currentIndex].text}</p>
+                <div className="flex items-center justify-center">
+                  <StarIcon className="text-brand-accent" size={16} />
+                </div>
+                <p className="text-brand-primary font-medium mt-4">{testimonials[currentIndex].author}</p>
               </div>
-            ))}
+            </div>
 
             <button
               onClick={() => handleManualNavigation((currentIndex - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -ml-1 sm:-ml-4 
-                        hover:bg-brand-secondary transition-all duration-300 transform hover:-translate-x-1"
-              aria-label="Testimonio anterior"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md z-20 -ml-2
+                        hover:bg-brand-secondary/20 transition-all duration-300"
+              aria-label="Ver testimonio anterior"
             >
-              <ChevronLeft size={24} className="text-brand-primary" />
+              <ChevronLeft size={20} className="text-brand-primary" />
             </button>
             <button
               onClick={() => handleManualNavigation((currentIndex + 1) % testimonials.length)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-20 -mr-1 sm:-mr-4
-                        hover:bg-brand-secondary transition-all duration-300 transform hover:translate-x-1"
-              aria-label="Testimonio siguiente"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md z-20 -mr-2
+                        hover:bg-brand-secondary/20 transition-all duration-300"
+              aria-label="Ver testimonio siguiente"
             >
-              <ChevronRight size={24} className="text-brand-primary" />
+              <ChevronRight size={20} className="text-brand-primary" />
             </button>
           </div>
 
-          <div className="flex justify-center mt-2 sm:mt-4 space-x-3">
+          <div className="flex justify-center mt-4 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`h-3 sm:h-3 rounded-full transition-all duration-300 
-                          ${currentIndex === index ? 'bg-brand-primary w-8 sm:w-8' : 'bg-brand-accent w-3 sm:w-3'} 
+                className={`h-2 rounded-full transition-all duration-300
+                          ${currentIndex === index ? 'bg-brand-primary w-6' : 'bg-brand-accent/50 w-2'} 
                           hover:bg-brand-highlight`}
                 onClick={() => handleManualNavigation(index)}
-                aria-label={`Ver testimonio ${index + 1}`}
-              ></button>
+                aria-label={`Ver testimonio ${index + 1} de ${testimonials.length}`}
+                aria-current={currentIndex === index ? 'true' : 'false'}
+              />
             ))}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 
 interface WaveDividerProps {
   position: 'top' | 'bottom';
@@ -6,7 +6,7 @@ interface WaveDividerProps {
   className?: string;
 }
 
-const WaveDivider: React.FC<WaveDividerProps> = ({ position, color, className = '' }) => {
+const WaveDivider: FC<WaveDividerProps> = ({ position, color, className = '' }) => {
   return (
     <div 
       className={`absolute ${position}-0 left-0 w-full overflow-hidden z-10 ${className}`}

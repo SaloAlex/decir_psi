@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface FAQItemProps {
   question: string;
   answer: string;
   isOpen: boolean;
   onClick: () => void;
+  index: number;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) => {
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, index }) => {
+  const itemId = `faq-${index}`;
+  const answerId = `faq-answer-${index}`;
+
   return (
     <div className="border-b border-brand-chocolate/10 py-4">
       <button
         className="flex items-center justify-between w-full text-left font-medium text-base md:text-lg focus:outline-none focus:text-brand-chocolate py-2 md:py-1"
         onClick={onClick}
         aria-expanded={isOpen}
+        aria-controls={answerId}
+        id={itemId}
       >
         <span>{question}</span>
         {isOpen ? <ChevronUp size={24} className="flex-shrink-0 ml-2" /> : <ChevronDown size={24} className="flex-shrink-0 ml-2" />}
       </button>
       {isOpen && (
-        <div className="pt-2 pb-4 text-brand-darkLight">
+        <div 
+          className="pt-2 pb-4 text-brand-darkLight"
+          id={answerId}
+          role="region"
+          aria-labelledby={itemId}
+        >
           <p>{answer}</p>
         </div>
       )}
@@ -29,6 +41,9 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
 };
 
 const FAQSection = () => {
+  const [isVisible, sectionRef] = useIntersectionObserver();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   const faqs = [
     {
       question: "¿Cuánto dura una sesión de terapia?",
@@ -52,16 +67,16 @@ const FAQSection = () => {
     }
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white">
+    <section id="faq" className="py-16 md:py-24 bg-white" ref={sectionRef}>
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center text-white">Preguntas Frecuentes</h2>
+        <h2 className={`text-3xl md:text-4xl font-semibold mb-8 text-center text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          Preguntas Frecuentes
+        </h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <FAQItem
@@ -70,6 +85,7 @@ const FAQSection = () => {
               answer={faq.answer}
               isOpen={openIndex === index}
               onClick={() => toggleFAQ(index)}
+              index={index}
             />
           ))}
         </div>

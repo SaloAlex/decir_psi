@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 // Importar las imágenes locales
 import florenciaDelGrosso from '../assets/Florencia-del-Grosso.webp';
@@ -49,32 +50,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, license, education, speci
 };
 
 const TeamSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = sectionRef.current;
-    
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
+  const [isVisible, sectionRef] = useIntersectionObserver();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const team = [
     {
@@ -163,7 +140,6 @@ const TeamSection = () => {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = {
     mobile: 1,
     tablet: 2, 

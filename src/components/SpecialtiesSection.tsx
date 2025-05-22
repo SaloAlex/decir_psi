@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface SpecialtyCardProps {
   title: string;
@@ -30,32 +32,8 @@ const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ title, description, image
 };
 
 const SpecialtiesSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = sectionRef.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
+  const [isVisible, sectionRef] = useIntersectionObserver();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const specialties = [
     {
@@ -108,6 +86,18 @@ const SpecialtiesSection = () => {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex + 1 >= specialties.length ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex - 1 < 0 ? specialties.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <section id="specialties" className="py-12 sm:py-16 md:py-24 bg-brand-secondary/50 relative" ref={sectionRef}>
       {/* Decorative elements */}
@@ -119,7 +109,9 @@ const SpecialtiesSection = () => {
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary mb-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nos especializamos en</h2>
           <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+
+        {/* Desktop View */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {specialties.map((specialty, index) => (
             <SpecialtyCard
               key={index}
@@ -127,11 +119,60 @@ const SpecialtiesSection = () => {
               description={specialty.description}
               imageSrc={specialty.imageSrc}
               imageAlt={specialty.imageAlt}
-              delay={index + 3}
+              delay={index}
               isVisible={isVisible}
             />
           ))}
         </div>
+
+        {/* Mobile View */}
+        <div className="block md:hidden">
+          <div className="relative px-4 sm:px-6">
+            <div className="flex justify-center">
+              <div className="w-full max-w-sm">
+                <SpecialtyCard
+                  title={specialties[currentIndex].title}
+                  description={specialties[currentIndex].description}
+                  imageSrc={specialties[currentIndex].imageSrc}
+                  imageAlt={specialties[currentIndex].imageAlt}
+                  delay={0}
+                  isVisible={isVisible}
+                />
+              </div>
+            </div>
+            
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md hover:bg-brand-secondary/20 transition-colors duration-300"
+              aria-label="Anterior especialidad"
+            >
+              <ChevronLeft size={24} className="text-brand-primary" />
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md hover:bg-brand-secondary/20 transition-colors duration-300"
+              aria-label="Siguiente especialidad"
+            >
+              <ChevronRight size={24} className="text-brand-primary" />
+            </button>
+          </div>
+
+          {/* Dots navigation */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {specialties.map((_, index) => (
+              <button 
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index ? 'bg-brand-primary w-4' : 'bg-brand-accent/50'
+                }`}
+                aria-label={`Ir a especialidad ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Mensaje final */}
         <div className="text-center mt-8">
           <p className="text-base sm:text-lg italic text-brand-dark bg-white/80 p-4 rounded-md shadow-lg border-2 border-brand-primary">
             Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 
 const FloatingWhatsApp = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   // Mostrar el tooltip después de 3 segundos al cargar la página
   useEffect(() => {
@@ -15,11 +16,22 @@ const FloatingWhatsApp = () => {
   }, []);
   
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5491158846134?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.', '_blank');
-    setIsTooltipVisible(false);
+    try {
+      const whatsappWindow = window.open('https://wa.me/5491158846134?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.', '_blank');
+      
+      if (whatsappWindow === null) {
+        throw new Error('El navegador bloqueó la apertura de la ventana');
+      }
+      
+      setIsTooltipVisible(false);
+      setErrorMessage(null);
+    } catch {
+      setErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta de nuevo o contáctanos por otro medio.');
+      setTimeout(() => setErrorMessage(null), 5000);
+    }
   };
   
-  const closeTooltip = (e: React.MouseEvent) => {
+  const closeTooltip = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setIsTooltipVisible(false);
   };
@@ -63,7 +75,12 @@ const FloatingWhatsApp = () => {
     <>
       <style>{pulseEffect}</style>
       <div className="fixed bottom-6 right-6 z-50">
-        {isTooltipVisible && (
+        {errorMessage && (
+          <div className="absolute bottom-full right-0 mb-3 w-64 p-4 bg-red-50 rounded-xl shadow-lg text-sm border border-red-200 text-red-600 transition-all duration-300 transform animate-fade-in-up">
+            {errorMessage}
+          </div>
+        )}
+        {isTooltipVisible && !errorMessage && (
           <div className="absolute bottom-full right-0 mb-3 w-64 p-4 bg-white rounded-xl shadow-lg text-sm border border-brand-caramelo/20 transition-all duration-300 transform animate-fade-in-up">
             <button 
               onClick={closeTooltip}
