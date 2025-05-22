@@ -43,8 +43,7 @@ const AboutSection = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12">
           <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
-              Somos un equipo de profesionales, egresados de la Facultad de Psicología, de la Universidad de Buenos Aires. 
-              Contamos con una larga trayectoria de trabajo individual y grupal, lo que nos permitió sumar miradas enriquecedoras.
+              Cada profesional de nuestro equipo trabaja de manera individual, con su propio estilo y formación, compartiendo una misma lógica de trabajo: priorizar la singularidad de cada persona a acompañar y construir juntos un espacio donde lo que duele puede ser dicho y pensado.
             </p>
             <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-brand-dark text-left sm:text-justify">
               Abordamos diferentes temáticas, conforme a diversos aportes específicos propios de la formación y 

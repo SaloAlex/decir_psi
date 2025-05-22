@@ -59,28 +59,52 @@ const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      title: "Terapia Individual Adultos",
-      description: "Trabajamos para brindar la mejor atención a nuestros pacientes, formándonos y actualizándonos en los distintos métodos psicoterapeuticos vigentes. Nuestra propuesta arranca con un primer encuentro, donde realizamos una entrevista de admisión, para conocer al paciente y establecer el tipo de tratamiento que se le brindara, acorde a su necesidad.",
-      imageSrc: "https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Consulta de terapia individual con un adulto"
+      title: "Trastornos de la Ansiedad",
+      description: "Tratamos los diferentes tipos de trastornos de ansiedad, ayudando a los pacientes a manejar sus síntomas y mejorar su calidad de vida.",
+      imageSrc: "https://images.pexels.com/photos/3958476/pexels-photo-3958476.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona experimentando ansiedad"
     },
     {
-      title: "Terapia con Niños",
-      description: "Los niños pueden transitar situaciones de conflictos psicoemocionales o sociales que pueden expresar de diferentes maneras, como cambios de humor, en su conduca, en sus relaciones con los otros tanto adultos como su grupo de pares, etc. Para poder trabajar con ellos se utiliza el juego como la mejor herramienta, dado que dichos conflictos son inconscientes, y a través de él pueden proyectar, exteriorizar y resolver sin darse cuenta.",
-      imageSrc: "https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Sesión de terapia infantil con juegos terapéuticos"
+      title: "Fobias",
+      description: "Ofrecemos terapia para superar fobias específicas, ayudando a los pacientes a enfrentar y reducir sus miedos.",
+      imageSrc: "https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona enfrentando una fobia"
     },
     {
-      title: "Terapia de Pareja",
-      description: "El tiempo, la rutina, la cotidianidad, los hijos y/o eventos singulares de cada uno de los miembros de la pareja, desencadenan conflictos que no pueden resolver o identificar. Nuestros profesionales están capacitados para escuchar y acompañar a la pareja en este difícil momento de crisis donde detenerse, hablar, escuchar y ser escuchado es un camino distinto para transitar el conflicto.",
-      imageSrc: "https://images.pexels.com/photos/4098227/pexels-photo-4098227.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Pareja durante una sesión de terapia de pareja"
+      title: "Ansiedad Social",
+      description: "Ayudamos a las personas a superar la ansiedad social, mejorando sus habilidades de interacción y confianza en situaciones sociales.",
+      imageSrc: "https://images.pexels.com/photos/3184407/pexels-photo-3184407.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona en un entorno social"
     },
     {
-      title: "Certificado de apoyo emocional para mascotas",
-      description: "Aunque por lo general la aerolíneas no permiten volar con animales los \"Emotional Support Animals\", son acompañantes que proveen a sus dueños de un apoyo emocional necesario para realizar estos viajes. Por lo tanto, si un profesional de la salud mental certifica esta necesidad, esto determina que esas personas tienen derecho a viajar con su perro en el avión.",
-      imageSrc: "https://images.pexels.com/photos/7210704/pexels-photo-7210704.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona con su mascota de apoyo emocional"
+      title: "TOC",
+      description: "Tratamos el Trastorno Obsesivo-Compulsivo, proporcionando estrategias para manejar pensamientos intrusivos y compulsiones.",
+      imageSrc: "https://images.pexels.com/photos/4342498/pexels-photo-4342498.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona lidiando con TOC"
+    },
+    {
+      title: "Manejo de las Emociones",
+      description: "Enseñamos técnicas para el manejo efectivo de las emociones, promoviendo el bienestar emocional.",
+      imageSrc: "https://images.pexels.com/photos/3755761/pexels-photo-3755761.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona gestionando sus emociones"
+    },
+    {
+      title: "Trastornos de la Conducta Alimentaria",
+      description: "Ofrecemos apoyo para superar trastornos alimentarios, promoviendo una relación saludable con la comida.",
+      imageSrc: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona con trastorno alimentario"
+    },
+    {
+      title: "Depresión",
+      description: "Proporcionamos tratamiento para la depresión, ayudando a los pacientes a encontrar esperanza y mejorar su estado de ánimo.",
+      imageSrc: "https://images.pexels.com/photos/897817/pexels-photo-897817.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona experimentando depresión"
+    },
+    {
+      title: "Crisis Vitales",
+      description: "Apoyamos a las personas en momentos de crisis vitales, ayudándolas a encontrar nuevas perspectivas y soluciones.",
+      imageSrc: "https://images.pexels.com/photos/4557473/pexels-photo-4557473.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona enfrentando una crisis vital"
     }
   ];
 
@@ -107,6 +131,11 @@ const SpecialtiesSection = () => {
               isVisible={isVisible}
             />
           ))}
+        </div>
+        <div className="text-center mt-8">
+          <p className="text-base sm:text-lg italic text-brand-dark bg-white/80 p-4 rounded-md shadow-lg border-2 border-brand-primary">
+            Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.
+          </p>
         </div>
       </div>
     </section>

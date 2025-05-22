@@ -78,11 +78,25 @@ const TeamSection = () => {
 
   const team = [
     {
+      name: "Lic. Viviana B. Kostoff",
+      license: "M.N. 34399",
+      education: "U.B.A",
+      specialties: "Psicóloga clínica. Psicoanalista. Adolescentes Adultos Parejas",
+      image: vivianaKostoff
+    },
+    {
       name: "Lic. Florencia Del Grosso",
       license: "M.N. 36663",
       education: "U.B.A",
-      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. En Niñez y Adolescencia; Esp. En Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica",
+      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. En Niñez y Adolescencia; Esp. En Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica; Terapia de Parejas",
       image: florenciaDelGrosso
+    },
+    {
+      name: "Lic. Emilce D. Najmanovich",
+      license: "M.N. 32041",
+      education: "U.B.A",
+      specialties: "Atención a Jóvenes; Adultos; Adultos Mayores. Orientación a padres. Presencial- Virtual",
+      image: emilceNajmanovich
     },
     {
       name: "Lic. Viviana De Marinis",
@@ -90,13 +104,6 @@ const TeamSection = () => {
       education: "U.B.A",
       specialties: "Psicóloga Clínica-Psicodramatista; Esp. Clínica: Jóvenes, Adultos y Adultos Mayores; Esp. Orientación a padres.",
       image: vivianaDeMarinis
-    },
-    {
-      name: "Lic. Emilce Najmanovich",
-      license: "M.N. 32041",
-      education: "U.B.A",
-      specialties: "Psicoanalista; Clínica Psicológica.",
-      image: emilceNajmanovich
     },
     {
       name: "Lic. Paola Boella",
@@ -111,13 +118,6 @@ const TeamSection = () => {
       education: "U.B.A",
       specialties: "Psicóloga; Clínica de Adultos y Adolescentes; Terapia de Parejas; Orientación a Padres.",
       image: solGiovanetti
-    },
-    {
-      name: "Lic. Viviana B. Kostoff",
-      license: "M.N. 34399",
-      education: "U.B.A",
-      specialties: "Psicóloga Clínica de Adultos y Adolescentes.",
-      image: vivianaKostoff
     },
     {
       name: "Lic. Juan Ignacio Diez",
@@ -150,8 +150,8 @@ const TeamSection = () => {
     {
       name: "Lic. Mailen Di Lascio Troncoso",
       license: "M.N. 85137",
-      education: "U.B.A",
-      specialties: "Psicóloga Clínica de niños, adolescentes.",
+      education: "UFLO",
+      specialties: "Psicóloga Clínica de niños, adolescentes, adultos.",
       image: mailenDiLascio
     },
     {

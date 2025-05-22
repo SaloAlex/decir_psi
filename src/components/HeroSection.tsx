@@ -35,7 +35,7 @@ const HeroSection = () => {
           </h1>
           <div className="w-24 sm:w-32 h-1 bg-brand-secondary mb-4 sm:mb-8 transition-all duration-700 delay-200" style={{ transitionDelay: '100ms' }}></div>
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-10 max-w-2xl transition-all duration-700 ease-out" style={{ transitionDelay: '200ms' }}>
-            Somos un equipo de profesionales egresados de la Facultad de Psicología de la UBA con amplia experiencia en diferentes especialidades.
+            Somos un equipo de psicólogas y psicólogos de amplia trayectoria, con atención en distintas zonas de Caba.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 transition-all duration-700 ease-out" style={{ transitionDelay: '400ms' }}>
             <a 
