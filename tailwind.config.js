@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#b03648',    // Color principal (rojo profundo)
+          primary: '#6D6D6D',    // Cambiado a gris oscuro (darkLight)
           secondary: '#eaccad',  // Color secundario (beige claro)
           accent: '#e8c39e',     // Color de acento
           background: '#f3dbc3', // Fondo principal
-          highlight: '#c02741',  // Color llamativo
+          highlight: '#e8c39e',  // Cambiado a tierra (acento suave)
           softAccent: '#d06b79', // Acento suave
 
           // Mantenemos los nombres anteriores pero con los nuevos valores para compatibilidad

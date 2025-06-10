@@ -37,52 +37,58 @@ const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      title: "Trastornos de la Ansiedad",
-      description: "Tratamos los diferentes tipos de trastornos de ansiedad, ayudando a los pacientes a manejar sus síntomas y mejorar su calidad de vida.",
-      imageSrc: "https://images.pexels.com/photos/3958476/pexels-photo-3958476.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona experimentando ansiedad"
+      title: "Orientación a padres",
+      description: "Apoyamos a los padres en la crianza y educación de sus hijos, ofreciendo herramientas para mejorar la comunicación y el entendimiento.",
+      imageSrc: "https://images.pexels.com/photos/1682497/pexels-photo-1682497.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Padres con su hijo"
     },
     {
-      title: "Fobias",
-      description: "Ofrecemos terapia para superar fobias específicas, ayudando a los pacientes a enfrentar y reducir sus miedos.",
-      imageSrc: "https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona enfrentando una fobia"
+      title: "Adolescencia",
+      description: "Ofrecemos apoyo a adolescentes en su desarrollo personal y social, ayudándolos a enfrentar los desafíos de esta etapa.",
+      imageSrc: "https://images.pexels.com/photos/256658/pexels-photo-256658.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Adolescente en reflexión"
     },
     {
-      title: "Ansiedad Social",
-      description: "Ayudamos a las personas a superar la ansiedad social, mejorando sus habilidades de interacción y confianza en situaciones sociales.",
-      imageSrc: "https://images.pexels.com/photos/3184407/pexels-photo-3184407.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona en un entorno social"
+      title: "Niñez",
+      description: "Brindamos orientación para el desarrollo emocional y social de los niños, promoviendo un entorno seguro y positivo.",
+      imageSrc: "https://images.pexels.com/photos/1912868/pexels-photo-1912868.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Niño jugando"
     },
     {
-      title: "TOC",
-      description: "Tratamos el Trastorno Obsesivo-Compulsivo, proporcionando estrategias para manejar pensamientos intrusivos y compulsiones.",
-      imageSrc: "https://images.pexels.com/photos/4342498/pexels-photo-4342498.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona lidiando con TOC"
+      title: "Adultos",
+      description: "Apoyamos a los adultos en la gestión de sus emociones y en la búsqueda de un equilibrio personal y profesional.",
+      imageSrc: "https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Adulto en meditación"
     },
     {
-      title: "Manejo de las Emociones",
-      description: "Enseñamos técnicas para el manejo efectivo de las emociones, promoviendo el bienestar emocional.",
-      imageSrc: "https://images.pexels.com/photos/3755761/pexels-photo-3755761.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona gestionando sus emociones"
+      title: "Tercera edad",
+      description: "Ofrecemos apoyo a personas mayores para mejorar su calidad de vida y enfrentar los cambios propios de esta etapa.",
+      imageSrc: "https://images.pexels.com/photos/432722/pexels-photo-432722.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Persona mayor sonriendo"
     },
     {
-      title: "Trastornos de la Conducta Alimentaria",
+      title: "Adicciones",
+      description: "Proporcionamos tratamiento para superar adicciones, promoviendo un estilo de vida saludable y libre de dependencias.",
+      imageSrc: "https://images.pexels.com/photos/2777898/pexels-photo-2777898.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Concepto de adicción"
+    },
+    {
+      title: "Trastornos de la conducta alimentaria",
       description: "Ofrecemos apoyo para superar trastornos alimentarios, promoviendo una relación saludable con la comida.",
       imageSrc: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
       imageAlt: "Persona con trastorno alimentario"
     },
     {
-      title: "Depresión",
-      description: "Proporcionamos tratamiento para la depresión, ayudando a los pacientes a encontrar esperanza y mejorar su estado de ánimo.",
-      imageSrc: "https://images.pexels.com/photos/897817/pexels-photo-897817.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona experimentando depresión"
+      title: "Terapia de pareja",
+      description: "Ayudamos a las parejas a mejorar su comunicación y resolver conflictos, fortaleciendo su relación.",
+      imageSrc: "https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Pareja comunicándose"
     },
     {
-      title: "Crisis Vitales",
-      description: "Apoyamos a las personas en momentos de crisis vitales, ayudándolas a encontrar nuevas perspectivas y soluciones.",
-      imageSrc: "https://images.pexels.com/photos/4557473/pexels-photo-4557473.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Persona enfrentando una crisis vital"
+      title: "Familia",
+      description: "Ofrecemos terapia familiar para mejorar la dinámica y comunicación entre los miembros de la familia.",
+      imageSrc: "https://images.pexels.com/photos/1648385/pexels-photo-1648385.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Familia feliz"
     }
   ];
 
@@ -111,7 +117,7 @@ const SpecialtiesSection = () => {
         </div>
 
         {/* Desktop View */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {specialties.map((specialty, index) => (
             <SpecialtyCard
               key={index}

@@ -76,7 +76,7 @@ const FloatingWhatsApp = () => {
       <style>{pulseEffect}</style>
       <div className="fixed bottom-6 right-6 z-50">
         {errorMessage && (
-          <div className="absolute bottom-full right-0 mb-3 w-64 p-4 bg-red-50 rounded-xl shadow-lg text-sm border border-red-200 text-red-600 transition-all duration-300 transform animate-fade-in-up">
+          <div className="absolute bottom-full right-0 mb-3 w-64 p-4 bg-red-50 rounded-xl shadow-lg text-sm border border-red-200 text-brand-primary transition-all duration-300 transform animate-fade-in-up">
             {errorMessage}
           </div>
         )}
@@ -94,7 +94,7 @@ const FloatingWhatsApp = () => {
                 <MessageCircle size={20} />
               </span>
               <div>
-                <p className="text-brand-chocolate font-medium mb-2">¿Necesitas ayuda? Contáctanos por WhatsApp</p>
+                <p className="text-brand-primary font-medium mb-2">¿Necesitas ayuda? Contáctanos por WhatsApp</p>
                 <p className="text-brand-darkLight text-xs">Responderemos a la brevedad</p>
               </div>
             </div>
@@ -102,9 +102,9 @@ const FloatingWhatsApp = () => {
         )}
         
         <div className="relative float">
-          <div className="absolute -inset-1 bg-gradient-to-r from-brand-marron to-brand-chocolate rounded-full blur opacity-70"></div>
+          <div className="absolute -inset-1 bg-gray-600 rounded-full blur opacity-70"></div>
           <button
-            className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-marron to-brand-chocolate text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 pulse overflow-hidden group"
+            className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gray-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 pulse overflow-hidden group"
             onClick={handleWhatsAppClick}
             onMouseEnter={() => setIsButtonHovered(true)}
             onMouseLeave={() => setIsButtonHovered(false)}

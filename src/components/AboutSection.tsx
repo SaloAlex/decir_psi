@@ -44,7 +44,7 @@ const AboutSection = () => {
           <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-6">
               <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-brand-dark text-left sm:text-justify">
-                Cada profesional de nuestro equipo trabaja de manera individual, con su propio estilo y formación,
+              Cada profesional de nuestro equipo trabaja desde su trayectoria y con la impronta de su formación profesional,
                 <span className="font-medium text-brand-marron"> compartiendo una misma lógica de trabajo:</span>
               </p>
               <p className="text-lg sm:text-xl italic font-normal leading-relaxed text-brand-dark text-left sm:text-justify pl-4 border-l-4 border-brand-marron/30">

@@ -1,4 +1,3 @@
-import { MessageSquare, Mail } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 
 const ContactSection = () => {
@@ -42,36 +41,21 @@ const ContactSection = () => {
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary mt-2 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>Contactate con nuestros profesionales</h2>
         </div>
         
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-          <div className={`bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-soft flex flex-col items-center text-center transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2 hover:shadow-lg`} style={{ transitionDelay: '300ms' }}>
-            <div className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-brand-accent mb-4 transition-transform duration-300 hover:scale-110 group">
-              <MessageSquare size={17} className="text-brand-highlight transition-transform duration-300 group-hover:scale-110" />
+        <div className="max-w-4xl mx-auto grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
+          <div className="max-w-xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col items-center text-center transition-all duration-700 transform hover:-translate-y-2 hover:shadow-xl" style={{ transitionDelay: '300ms' }}>
+            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-accent mb-5 transition-transform duration-300 hover:scale-110 group">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" className="w-10 h-10" />
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-brand-primary">WhatsApp</h3>
-            <p className="text-xl sm:text-2xl font-bold text-brand-highlight">+54 9 11 5884-6134</p>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brand-primary">WhatsApp</h3>
+            <p className="text-2xl font-bold text-brand-highlight">+54 9 11 5884-6134</p>
             <a 
               href="https://wa.me/5491158846134" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="mt-4 sm:mt-6 bg-brand-accent text-brand-dark font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-full shadow-soft transition-all duration-300 hover:shadow-md hover:brightness-105 focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:outline-none relative overflow-hidden group text-sm sm:text-base"
+              className="mt-5 bg-brand-accent text-brand-dark font-medium py-3 px-6 rounded-full shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-105 focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:outline-none relative overflow-hidden group text-lg"
             >
               <span className="absolute inset-0 w-0 bg-gradient-to-r from-brand-accent to-brand-background rounded-full transition-all duration-500 ease-out group-hover:w-full"></span>
               <span className="relative z-10">Enviar mensaje</span>
-            </a>
-          </div>
-          
-          <div className={`bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-soft flex flex-col items-center text-center transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2 hover:shadow-lg`} style={{ transitionDelay: '500ms' }}>
-            <div className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full bg-brand-accent mb-4 transition-transform duration-300 hover:scale-110 group">
-              <Mail size={17} className="text-brand-highlight transition-transform duration-300 group-hover:scale-110" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-brand-primary">Correo Electrónico</h3>
-            <p className="text-xl sm:text-2xl font-bold text-brand-highlight">psi.libre.asoc@gmail.com</p>
-            <a 
-              href="mailto:psi.libre.asoc@gmail.com" 
-              className="mt-4 sm:mt-6 bg-brand-accent text-brand-dark font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-full shadow-soft transition-all duration-300 hover:shadow-md hover:brightness-105 focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:outline-none relative overflow-hidden group text-sm sm:text-base"
-            >
-              <span className="absolute inset-0 w-0 bg-gradient-to-r from-brand-accent to-brand-background rounded-full transition-all duration-500 ease-out group-hover:w-full"></span>
-              <span className="relative z-10">Enviar email</span>
             </a>
           </div>
         </div>

@@ -44,7 +44,7 @@ const Footer = () => {
           </p>
           <p className="flex items-center justify-center">
             <span>Hecho por </span>
-            <a href="https://websiar.site" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-beige hover:underline mx-1">
+            <a href="https://websiar.site" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-400 hover:underline mx-1">
               websiar <span className="mx-1">|</span> diseño Web
             </a>
           </p>

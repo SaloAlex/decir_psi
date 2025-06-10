@@ -35,7 +35,8 @@ const HeroSection = () => {
           </h1>
           <div className="w-24 sm:w-32 h-1 bg-brand-secondary mb-4 sm:mb-8 transition-all duration-700 delay-200" style={{ transitionDelay: '100ms' }}></div>
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-10 max-w-2xl transition-all duration-700 ease-out" style={{ transitionDelay: '200ms' }}>
-            Somos un equipo de psicólogas y psicólogos de amplia trayectoria, con atención en distintas zonas de Caba.
+            Somos un equipo de psicólogas y psicólogos con amplia trayectoria clínica.
+            Tenemos consultorios en distintas zonas de CABA
           </p>
           <div className="flex flex-col sm:flex-row gap-4 transition-all duration-700 ease-out" style={{ transitionDelay: '400ms' }}>
             <a 
@@ -49,14 +50,6 @@ const HeroSection = () => {
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-secondary to-brand-accent rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
               <MessageSquare size={20} className="mr-3 relative z-10" />
               <span className="relative z-10 font-semibold text-base sm:text-base">Contactar por WhatsApp</span>
-            </a>
-            <a 
-              href="#about" 
-              className="flex items-center justify-center bg-transparent border-2 border-white/70 text-white font-medium py-3 sm:py-2.5 px-6 sm:px-6 rounded-full 
-                        shadow-md hover:shadow-lg transition-all duration-300 
-                        transform hover:-translate-y-1 hover:bg-white/10 active:translate-y-0"
-            >
-              <span className="font-semibold text-base sm:text-base">Conocer más</span>
             </a>
           </div>
         </div>
