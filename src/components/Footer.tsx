@@ -1,48 +1,35 @@
-import { Mail } from 'lucide-react';
+// Eliminando la importación no utilizada
+// import { Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-tierra pt-10 pb-8">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-white">Libre Asociación</h3>
-            <p className="text-white mb-3">
+    <footer className="bg-brand-tierra pt-8 pb-6 px-4 sm:px-6">
+      <div className="container max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-around items-center md:items-start gap-6 md:gap-8 mb-8">
+          <div className="w-full md:max-w-md text-center md:text-left px-4 md:px-0">
+            <h3 className="text-xl font-semibold mb-3 text-white">Psi | Atención Psicológica</h3>
+            <p className="text-white text-sm sm:text-base">
               Somos un grupo de profesionales dedicados a acompañarte en el proceso de autoconocimiento y crecimiento personal.
             </p>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-white">Enlaces rápidos</h3>
-            <ul className="space-y-2 text-white">
-              <li><a href="#home" className="hover:text-brand-beige transition-colors">Inicio</a></li>
-              <li><a href="#about" className="hover:text-brand-beige transition-colors">Nosotros</a></li>
-              <li><a href="#specialties" className="hover:text-brand-beige transition-colors">Especialidades</a></li>
-              <li><a href="#team" className="hover:text-brand-beige transition-colors">Equipo</a></li>
-              <li><a href="#faq" className="hover:text-brand-beige transition-colors">Preguntas frecuentes</a></li>
+
+          <div className="w-full md:w-auto text-center md:text-left">
+            <h3 className="text-xl font-semibold mb-3 text-white">Enlaces rápidos</h3>
+            <ul className="space-y-2 text-white text-sm sm:text-base">
+              <li><a href="#home" className="hover:text-brand-beige transition-colors block py-1">Inicio</a></li>
+              <li><a href="#about" className="hover:text-brand-beige transition-colors block py-1">Nosotros</a></li>
+              <li><a href="#specialties" className="hover:text-brand-beige transition-colors block py-1">Especialidades</a></li>
+              <li><a href="#team" className="hover:text-brand-beige transition-colors block py-1">Equipo</a></li>
+              <li><a href="#faq" className="hover:text-brand-beige transition-colors block py-1">Preguntas frecuentes</a></li>
             </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-white">Contacto</h3>
-            <p className="text-white mb-3">
-              ¿Necesitas más información? Escríbenos y te responderemos lo antes posible.
-            </p>
-            <a 
-              href="mailto:info@libreasociacion.com" 
-              className="inline-flex items-center text-white hover:text-brand-beige transition-colors"
-            >
-              <Mail size={18} className="mr-2" />
-              info@libreasociacion.com
-            </a>
           </div>
         </div>
         
-        <div className="border-t border-white/30 pt-6 text-center text-sm text-white">
+        <div className="border-t border-white/30 pt-6 text-center text-xs sm:text-sm text-white">
           <p className="flex items-center justify-center mb-2">
-            <span>© {new Date().getFullYear()} Libre Asociación</span>
+            <span>© {new Date().getFullYear()} Psi | Atención Psicológica</span>
           </p>
-          <p className="flex items-center justify-center">
+          <p className="flex items-center justify-center flex-wrap">
             <span>Hecho por </span>
             <a href="https://websiar.site" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-400 hover:underline mx-1">
               websiar <span className="mx-1">|</span> diseño Web
