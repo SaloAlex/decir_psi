@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logoBeforeScroll from '../assets/logo_b.png';
+import logoAfterScroll from '../assets/logo_n.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ const Navbar = () => {
     >
       <div className="container flex justify-between items-center">
         <a href="#home" className="flex items-center">
-          <img src={logo} alt="Logo" className="h-24 w-24 mr-2" />
+          <img src={isScrolled ? logoAfterScroll : logoBeforeScroll} alt="Logo" className="h-24 w-24 mr-2" />
         </a>
 
         {/* Desktop Menu */}

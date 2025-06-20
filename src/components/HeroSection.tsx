@@ -1,6 +1,7 @@
 import { MessageSquare } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import WaveDivider from './WaveDivider';
+import heroImage from '../assets/img_hero.webp';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,14 +15,14 @@ const HeroSection = () => {
       id="home" 
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        backgroundImage: `url("https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=2")`,
+        backgroundImage: `url(${heroImage})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}
     >
       {/* Overlay con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/90 to-brand-highlight/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-marron/90 to-brand-marron/70"></div>
       
       {/* Elementos decorativos - ajustados para mejor visualización en móvil */}
       <div className="absolute top-20 left-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/30 rounded-full blur-3xl animate-pulse"></div>

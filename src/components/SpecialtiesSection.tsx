@@ -37,10 +37,10 @@ const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      title: "Orientación a padres",
-      description: "Apoyamos a los padres en la crianza y educación de sus hijos, ofreciendo herramientas para mejorar la comunicación y el entendimiento.",
-      imageSrc: "https://images.pexels.com/photos/1682497/pexels-photo-1682497.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Padres con su hijo"
+      title: "Adultos",
+      description: "Apoyamos a los adultos en la gestión de sus emociones y en la búsqueda de un equilibrio personal y profesional.",
+      imageSrc: "https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Adulto en meditación"
     },
     {
       title: "Adolescencia",
@@ -55,10 +55,10 @@ const SpecialtiesSection = () => {
       imageAlt: "Niño jugando"
     },
     {
-      title: "Adultos",
-      description: "Apoyamos a los adultos en la gestión de sus emociones y en la búsqueda de un equilibrio personal y profesional.",
-      imageSrc: "https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Adulto en meditación"
+      title: "Orientación a padres",
+      description: "Apoyamos a los padres en la crianza y educación de sus hijos, ofreciendo herramientas para mejorar la comunicación y el entendimiento.",
+      imageSrc: "https://images.pexels.com/photos/1682497/pexels-photo-1682497.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageAlt: "Padres con su hijo"
     },
     {
       title: "Tercera edad",

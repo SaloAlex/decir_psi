@@ -58,35 +58,35 @@ const TeamSection = () => {
       name: "Lic. Viviana B. Kostoff",
       license: "M.N. 34399",
       education: "U.B.A",
-      specialties: "Psicóloga clínica. Psicoanalista. Adolescentes Adultos Parejas",
+      specialties: "Psicóloga clínica; Psicoanalista; Adolescentes, Adultos, Parejas",
       image: vivianaKostoff
     },
     {
       name: "Lic. Florencia Del Grosso",
       license: "M.N. 36663",
       education: "U.B.A",
-      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. En Niñez y Adolescencia; Esp. En Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica; Terapia de Parejas",
+      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. en Niñez y Adolescencia; Esp. en Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica; Terapia de Parejas",
       image: florenciaDelGrosso
     },
     {
       name: "Lic. Emilce D. Najmanovich",
       license: "M.N. 32041",
       education: "U.B.A",
-      specialties: "Atención a Jóvenes; Adultos; Adultos Mayores. Orientación a padres. Presencial- Virtual",
+      specialties: "Atención a Jóvenes; Adultos; Adultos Mayores; Orientación a padres; Presencial, Virtual",
       image: emilceNajmanovich
     },
     {
       name: "Lic. Viviana De Marinis",
       license: "M.N. 22930",
       education: "U.B.A",
-      specialties: "Psicóloga Clínica-Psicodramatista; Esp. Clínica: Jóvenes, Adultos y Adultos Mayores; Esp. Orientación a padres.",
+      specialties: "Psicóloga Clínica, Psicodramatista; Esp. Clínica: Jóvenes, Adultos y Adultos Mayores; Esp. Orientación a padres.",
       image: vivianaDeMarinis
     },
     {
       name: "Lic. Paola Boella",
       license: "M.N. 41914",
-      education: "U.B.A",
-      specialties: "Psicóloga Clínica de Adultos, Adolescentes y Parejas; Psicoanalista; Posgrados en Psicoanálisis en Fundación Tiempo e Institución Nuevo Centro; Psicóloga Clínica de Adultos en Fundación Tiempo.",
+      education: "Psicóloga clínica- psicoanalista.",
+      specialties: "Esp. Adultos, adolescentes y parejas; Atención virtual.",
       image: paolaBoella
     },
     {
@@ -107,7 +107,7 @@ const TeamSection = () => {
       name: "Lic. Roxana A. Nijamin",
       license: "M.N. 22211",
       education: "U.B.A",
-      specialties: "Especialidad Terapia de Pareja; Adultos; Adolescentes; Psicología Laboral.",
+      specialties: "Especialidad Terapia de Pareja; Adultos; Adolescentes; Psicología Laboral; Terapia Familiar.",
       image: roxanaNijamin
     },
     {
@@ -135,7 +135,7 @@ const TeamSection = () => {
       name: "Lic. Juan Martin Zampini",
       license: "M.N. 84037",
       education: "U.B.A",
-      specialties: "Psicólogo. Clínica de adolescentes y adultos. Bilingüe.",
+      specialties: "Psicólogo; Clínica de adolescentes y adultos; Bilingüe.",
       image: juanMartinZampini
     }
   ];
