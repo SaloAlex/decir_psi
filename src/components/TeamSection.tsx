@@ -58,84 +58,84 @@ const TeamSection = () => {
       name: "Lic. Viviana B. Kostoff",
       license: "M.N. 34399",
       education: "U.B.A",
-      specialties: "Psicóloga clínica; Psicoanalista; Adolescentes, Adultos, Parejas",
+      specialties: "Psicóloga clínica y psicoanalista especializada en el abordaje terapéutico de adolescentes y adultos. Experta en terapia de parejas.",
       image: vivianaKostoff
     },
     {
       name: "Lic. Florencia Del Grosso",
       license: "M.N. 36663",
       education: "U.B.A",
-      specialties: "Psicóloga; Psicoanalista; Esp. en Clínica de Adultos; Esp. en Niñez y Adolescencia; Esp. en Primera Infancia; Esp. en Pubertad, Adolescencia y Familia; Orientación a Padres; Psicoprofilaxis Quirúrgica; Terapia de Parejas",
+      specialties: "Psicóloga y psicoanalista con especialización en niñez, adolescencia y familia. Brinda orientación a padres y terapia de parejas. Experta en psicoprofilaxis quirúrgica y primera infancia.",
       image: florenciaDelGrosso
     },
     {
       name: "Lic. Emilce D. Najmanovich",
       license: "M.N. 32041",
       education: "U.B.A",
-      specialties: "Atención a Jóvenes; Adultos; Adultos Mayores; Orientación a padres; Presencial, Virtual",
+      specialties: "Psicóloga especializada en el acompañamiento terapéutico de jóvenes, adultos y adultos mayores. Brinda orientación a padres en modalidad presencial y virtual.",
       image: emilceNajmanovich
     },
     {
       name: "Lic. Viviana De Marinis",
       license: "M.N. 22930",
       education: "U.B.A",
-      specialties: "Psicóloga Clínica, Psicodramatista; Esp. Clínica: Jóvenes, Adultos y Adultos Mayores; Esp. Orientación a padres.",
+      specialties: "Psicóloga clínica y psicodramatista. Especialista en el trabajo con jóvenes, adultos y adultos mayores. Brinda orientación profesional a padres.",
       image: vivianaDeMarinis
     },
     {
       name: "Lic. Paola Boella",
       license: "M.N. 41914",
-      education: "Psicóloga clínica- psicoanalista.",
-      specialties: "Esp. Adultos, adolescentes y parejas; Atención virtual.",
+      education: "U.B.A",
+      specialties: "Especialista en psicoanálisis con enfoque en adultos, adolescentes y parejas. Ofrece atención en modalidad virtual.",
       image: paolaBoella
     },
     {
       name: "Lic. María del Sol Giovanetti",
       license: "M.N. 42201",
       education: "U.B.A",
-      specialties: "Psicóloga; Clínica de Adultos y Adolescentes; Terapia de Parejas; Orientación a Padres.",
+      specialties: "Psicóloga especializada en clínica de adultos y adolescentes. Brinda terapia de parejas y orientación profesional a padres.",
       image: solGiovanetti
     },
     {
       name: "Lic. Juan Ignacio Diez",
       license: "M.N. 60.859",
       education: "U.B.A",
-      specialties: "Psicólogo; Psicoanalista; Esp. Adolescentes, adultos; Terapia de parejas.",
+      specialties: "Psicólogo y psicoanalista dedicado al trabajo terapéutico con adolescentes y adultos. Especialista en terapia de parejas.",
       image: juanIgnacioDiez
     },
     {
       name: "Lic. Roxana A. Nijamin",
       license: "M.N. 22211",
       education: "U.B.A",
-      specialties: "Especialidad Terapia de Pareja; Adultos; Adolescentes; Psicología Laboral; Terapia Familiar.",
+      specialties: "Especialista en terapia familiar y de pareja. Amplia experiencia en psicología laboral y trabajo con adolescentes y adultos.",
       image: roxanaNijamin
     },
     {
       name: "Lic. Silvina Isabettini",
       license: "M.N. 36826",
       education: "U.B.A",
-      specialties: "Psicóloga; Clínica de Niños y Adolescentes; Clínica de Adultos.",
+      specialties: "Psicóloga especializada en clínica infantil, adolescentes y adultos. Enfoque integral en el desarrollo y bienestar emocional.",
       image: silvinaIsabettini
     },
     {
       name: "Lic. María Mercedes Aira",
       license: "M.N. 29557",
       education: "U.B.A",
-      specialties: "Psicoanalista; Psicoterapeuta; Clínica de Adultos y Parejas.",
+      specialties: "Psicoanalista y psicoterapeuta con amplia experiencia en clínica de adultos y terapia de parejas.",
       image: mercedesArias
     },
     {
       name: "Lic. Mailen Di Lascio Troncoso",
       license: "M.N. 85137",
       education: "UFLO",
-      specialties: "Psicóloga Clínica de niños, adolescentes, adultos.",
+      specialties: "Psicóloga clínica especializada en el acompañamiento terapéutico de niños, adolescentes y adultos.",
       image: mailenDiLascio
     },
     {
       name: "Lic. Juan Martin Zampini",
       license: "M.N. 84037",
       education: "U.B.A",
-      specialties: "Psicólogo; Clínica de adolescentes y adultos; Bilingüe.",
+      specialties: "Psicólogo clínico bilingüe especializado en el trabajo terapéutico con adolescentes y adultos.",
       image: juanMartinZampini
     }
   ];

@@ -2,6 +2,17 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
+// Importar las imágenes
+import imgAdultos from '../assets/img_specialities/adultos.webp';
+import imgAdolescencia from '../assets/img_specialities/adolescencia.webp';
+import imgNinez from '../assets/img_specialities/niñez.webp';
+import imgOrientacionPadres from '../assets/img_specialities/orientacion_padres.webp';
+import imgTerceraEdad from '../assets/img_specialities/tercera_edad.webp';
+import imgTerapiaVirtual from '../assets/img_specialities/virtual.webp';
+import imgAlimentaria from '../assets/img_specialities/alimentaria.webp';
+import imgTerapiaPareja from '../assets/img_specialities/terapia_pareja.webp';
+import imgFamilia from '../assets/img_specialities/familia.webp';
+
 interface SpecialtyCardProps {
   title: string;
   description: string;
@@ -39,55 +50,55 @@ const SpecialtiesSection = () => {
     {
       title: "Adultos",
       description: "Apoyamos a los adultos en la gestión de sus emociones y en la búsqueda de un equilibrio personal y profesional.",
-      imageSrc: "https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgAdultos,
       imageAlt: "Adulto en meditación"
     },
     {
       title: "Adolescencia",
       description: "Ofrecemos apoyo a adolescentes en su desarrollo personal y social, ayudándolos a enfrentar los desafíos de esta etapa.",
-      imageSrc: "https://images.pexels.com/photos/256658/pexels-photo-256658.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgAdolescencia,
       imageAlt: "Adolescente en reflexión"
     },
     {
       title: "Niñez",
       description: "Brindamos orientación para el desarrollo emocional y social de los niños, promoviendo un entorno seguro y positivo.",
-      imageSrc: "https://images.pexels.com/photos/1912868/pexels-photo-1912868.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgNinez,
       imageAlt: "Niño jugando"
     },
     {
       title: "Orientación a padres",
       description: "Apoyamos a los padres en la crianza y educación de sus hijos, ofreciendo herramientas para mejorar la comunicación y el entendimiento.",
-      imageSrc: "https://images.pexels.com/photos/1682497/pexels-photo-1682497.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgOrientacionPadres,
       imageAlt: "Padres con su hijo"
     },
     {
       title: "Tercera edad",
       description: "Ofrecemos apoyo a personas mayores para mejorar su calidad de vida y enfrentar los cambios propios de esta etapa.",
-      imageSrc: "https://images.pexels.com/photos/432722/pexels-photo-432722.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgTerceraEdad,
       imageAlt: "Persona mayor sonriendo"
     },
     {
-      title: "Adicciones",
-      description: "Proporcionamos tratamiento para superar adicciones, promoviendo un estilo de vida saludable y libre de dependencias.",
-      imageSrc: "https://images.pexels.com/photos/2777898/pexels-photo-2777898.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
-      imageAlt: "Concepto de adicción"
+      title: "Terapia Virtual",
+      description: "Brindamos atención psicológica online profesional y confidencial, adaptándonos a tu horario y ubicación. Una alternativa flexible y efectiva para tu bienestar emocional.",
+      imageSrc: imgTerapiaVirtual,
+      imageAlt: "Terapia en línea"
     },
     {
       title: "Trastornos de la conducta alimentaria",
       description: "Ofrecemos apoyo para superar trastornos alimentarios, promoviendo una relación saludable con la comida.",
-      imageSrc: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgAlimentaria,
       imageAlt: "Persona con trastorno alimentario"
     },
     {
       title: "Terapia de pareja",
       description: "Ayudamos a las parejas a mejorar su comunicación y resolver conflictos, fortaleciendo su relación.",
-      imageSrc: "https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgTerapiaPareja,
       imageAlt: "Pareja comunicándose"
     },
     {
       title: "Familia",
       description: "Ofrecemos terapia familiar para mejorar la dinámica y comunicación entre los miembros de la familia.",
-      imageSrc: "https://images.pexels.com/photos/1648385/pexels-photo-1648385.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
+      imageSrc: imgFamilia,
       imageAlt: "Familia feliz"
     }
   ];
