@@ -28,24 +28,27 @@ interface TeamMemberProps {
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, license, education, specialties, image, delay = 0, isVisible = true }) => {
   return (
-    <div 
+    <article 
       className={`flex flex-col items-center p-3 sm:p-4 bg-white rounded-lg shadow-soft transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:shadow-md group`}
       style={{ transitionDelay: `${delay * 100}ms` }}
+      itemScope
+      itemType="http://schema.org/Person"
     >
       <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 mb-3 sm:mb-4 rounded-full overflow-hidden transition-all duration-300 group-hover:shadow-md">
         <img 
           src={image} 
-          alt={`${name} - Psicólogo`} 
+          alt={`${name} - Psicólogo/a en Buenos Aires`} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          loading="lazy" 
+          loading="lazy"
+          itemProp="image"
         />
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold text-brand-primary text-center transition-colors duration-300 group-hover:text-brand-highlight">{name}</h3>
-      <p className="text-brand-highlight font-medium mb-1 sm:mb-2 text-center text-sm sm:text-base">{license}</p>
-      <p className="text-brand-dark text-xs sm:text-sm font-medium text-center">{education}</p>
-      <div className="w-10 h-1 bg-brand-accent my-2 sm:my-3 transition-all duration-300 group-hover:w-16"></div>
-      <p className="text-center text-brand-darkLight text-xs sm:text-sm line-clamp-3 md:line-clamp-none">{specialties}</p>
-    </div>
+      <h3 className="text-lg sm:text-xl font-semibold text-brand-primary text-center transition-colors duration-300 group-hover:text-brand-highlight" itemProp="name">{name}</h3>
+      <p className="text-brand-highlight font-medium mb-1 sm:mb-2 text-center text-sm sm:text-base" itemProp="license">{license}</p>
+      <p className="text-brand-dark text-xs sm:text-sm font-medium text-center" itemProp="alumniOf">{education}</p>
+      <div className="w-10 h-1 bg-brand-accent my-2 sm:my-3 transition-all duration-300 group-hover:w-16" aria-hidden="true"></div>
+      <p className="text-center text-brand-darkLight text-xs sm:text-sm line-clamp-3 md:line-clamp-none" itemProp="description">{specialties}</p>
+    </article>
   );
 };
 
@@ -57,7 +60,7 @@ const TeamSection = () => {
     {
       name: "Lic. Viviana B. Kostoff",
       license: "M.N. 34399",
-      education: "U.B.A",
+      education: "Universidad de Buenos Aires (UBA)",
       specialties: "Psicóloga clínica y psicoanalista especializada en el abordaje terapéutico de adolescentes y adultos. Experta en terapia de parejas.",
       image: vivianaKostoff
     },
@@ -65,7 +68,7 @@ const TeamSection = () => {
       name: "Lic. Florencia Del Grosso",
       license: "M.N. 36663",
       education: "U.B.A",
-      specialties: "Psicóloga y psicoanalista con especialización en niñez, adolescencia y familia. Brinda orientación a padres y terapia de parejas. Experta en psicoprofilaxis quirúrgica y primera infancia.",
+      specialties: "Psicóloga y psicoanalista especializada en adultos, niñez, adolescencia y familia. Brinda orientación a padres y terapia de parejas. Experta en psicoprofilaxis quirúrgica y primera infancia.",
       image: florenciaDelGrosso
     },
     {
@@ -159,19 +162,35 @@ const TeamSection = () => {
   };
 
   return (
-    <section id="team" className="py-12 sm:py-16 md:py-24 bg-brand-secondary/30 relative" ref={sectionRef}>
+    <section 
+      id="team" 
+      className="py-12 sm:py-16 md:py-24 bg-brand-secondary/30 relative" 
+      ref={sectionRef}
+      aria-label="Equipo de profesionales de psicología"
+      itemScope
+      itemType="http://schema.org/Organization"
+    >
       {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-background/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-accent/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-20 right-10 w-24 h-24 sm:w-40 sm:h-40 bg-brand-background/10 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div className="absolute bottom-10 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-brand-accent/20 rounded-full blur-2xl" aria-hidden="true"></div>
       
       <div className="container relative z-10 px-4 sm:px-6">
-        <div className="text-center mb-6 sm:mb-10">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nuestro Equipo de Profesionales</h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
-        </div>
+        <header className="text-center mb-6 sm:mb-10">
+          <h2 
+            className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            itemProp="name"
+          >
+            Equipo de Psicólogos en Buenos Aires
+          </h2>
+          <div 
+            className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+            aria-hidden="true"
+          ></div>
+          <meta itemProp="description" content="Equipo de psicólogos profesionales especializados en diferentes áreas de la salud mental en Buenos Aires" />
+        </header>
         
         {/* Desktop View - Grid layout for larger screens */}
-        <div className="hidden lg:grid grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="hidden lg:grid grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6" itemProp="employees">
           {team.map((member, index) => (
             <TeamMember
               key={index}
@@ -187,7 +206,7 @@ const TeamSection = () => {
         </div>
         
         {/* Tablet View - Grid with 2 columns */}
-        <div className="hidden md:grid lg:hidden grid-cols-2 gap-4 sm:gap-6">
+        <div className="hidden md:grid lg:hidden grid-cols-2 gap-4 sm:gap-6" itemProp="employees">
           {team.map((member, index) => (
             <TeamMember
               key={index}
@@ -202,43 +221,42 @@ const TeamSection = () => {
           ))}
         </div>
         
-        {/* Mobile View - Carousel with 1 at a time */}
-        <div className={`md:hidden transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="relative px-8 sm:px-10">
-            <div className="flex justify-center">
-              <TeamMember
-                name={team[currentIndex].name}
-                license={team[currentIndex].license}
-                education={team[currentIndex].education}
-                specialties={team[currentIndex].specialties}
-                image={team[currentIndex].image}
-              />
-            </div>
-            <button 
+        {/* Mobile View - Carousel */}
+        <div className="md:hidden relative">
+          <div className="flex items-center">
+            <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-secondary transition-colors duration-300"
-              aria-label="Anterior profesional"
+              className="absolute left-0 z-10 p-2 text-brand-primary hover:text-brand-highlight transition-colors"
+              aria-label="Ver profesional anterior"
             >
-              <ChevronLeft size={24} className="text-brand-primary" />
+              <ChevronLeft size={24} />
             </button>
-            <button 
+            
+            <div className="overflow-hidden mx-8">
+              <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                {team.map((member, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-2">
+                    <TeamMember
+                      name={member.name}
+                      license={member.license}
+                      education={member.education}
+                      specialties={member.specialties}
+                      image={member.image}
+                      delay={0}
+                      isVisible={isVisible}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 sm:p-2 shadow-soft z-10 hover:bg-brand-secondary transition-colors duration-300"
-              aria-label="Siguiente profesional"
+              className="absolute right-0 z-10 p-2 text-brand-primary hover:text-brand-highlight transition-colors"
+              aria-label="Ver siguiente profesional"
             >
-              <ChevronRight size={24} className="text-brand-primary" />
+              <ChevronRight size={24} />
             </button>
-          </div>
-          
-          <div className="flex justify-center mt-3 sm:mt-4 space-x-2 sm:space-x-2 flex-wrap max-w-xs mx-auto overflow-x-auto py-2">
-            {team.map((_, index) => (
-              <button 
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand-primary w-4 sm:w-4' : 'bg-brand-accent'} hover:bg-brand-highlight`}
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`Ver profesional ${index + 1}`}
-              ></button>
-            ))}
           </div>
         </div>
       </div>

@@ -15,7 +15,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
   const answerId = `faq-answer-${index}`;
 
   return (
-    <div className="border-b border-brand-chocolate/10 py-4">
+    <article 
+      className="border-b border-brand-chocolate/10 py-4"
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
+    >
       <button
         className="flex items-center justify-between w-full text-left font-medium text-base md:text-lg focus:outline-none focus:text-brand-chocolate py-2 md:py-1"
         onClick={onClick}
@@ -23,8 +28,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
         aria-controls={answerId}
         id={itemId}
       >
-        <span>{question}</span>
-        {isOpen ? <ChevronUp size={24} className="flex-shrink-0 ml-2" /> : <ChevronDown size={24} className="flex-shrink-0 ml-2" />}
+        <span itemProp="name">{question}</span>
+        <span className="flex-shrink-0 ml-2" aria-hidden="true">
+          {isOpen ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+        </span>
       </button>
       {isOpen && (
         <div 
@@ -32,11 +39,14 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
           id={answerId}
           role="region"
           aria-labelledby={itemId}
+          itemScope
+          itemProp="acceptedAnswer"
+          itemType="https://schema.org/Answer"
         >
-          <p>{answer}</p>
+          <p itemProp="text">{answer}</p>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 
@@ -46,24 +56,28 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "¿Cuánto dura una sesión de terapia?",
-      answer: "Las sesiones individuales duran 50 minutos, mientras que las sesiones de pareja o familiares pueden extenderse hasta 60-75 minutos dependiendo de las necesidades específicas."
+      question: "¿Qué tipo de servicio psicológico ofrecen?",
+      answer: "Brindamos atención psicológica privada con un equipo de profesionales matriculados y especializados. Nuestro servicio se caracteriza por ofrecer un tratamiento personalizado, adaptado a las necesidades específicas de cada paciente, en un marco de profesionalismo y confidencialidad."
     },
     {
-      question: "¿Cuáles son los honorarios por sesión?",
-      answer: "Los honorarios varían según el tipo de terapia y el profesional. Ofrecemos planes accesibles y trabajamos con las principales obras sociales y prepagas. Contáctanos para más información sobre tarifas actualizadas."
+      question: "¿Cuánto dura una sesión de terapia psicológica?",
+      answer: "Las sesiones individuales de terapia psicológica tienen una duración de 50 minutos, mientras que las sesiones de terapia de pareja o terapia familiar pueden extenderse hasta 60-75 minutos dependiendo de las necesidades específicas del tratamiento."
     },
     {
-      question: "¿Ofrecen terapia online?",
-      answer: "Sí, ofrecemos sesiones online a través de plataformas seguras que garantizan la confidencialidad. La terapia virtual es tan efectiva como la presencial y brinda mayor flexibilidad."
+      question: "¿Cuál es el costo de una sesión de terapia?",
+      answer: "Los honorarios se establecen según el tipo de terapia y el profesional tratante. Trabajamos con las principales obras sociales y prepagas. Contáctanos por WhatsApp para recibir información detallada sobre tarifas actualizadas y opciones de cobertura."
     },
     {
-      question: "¿Con qué frecuencia son las sesiones?",
-      answer: "Generalmente se recomienda una sesión semanal al inicio del tratamiento. Conforme avanza el proceso, la frecuencia puede ajustarse según las necesidades y objetivos terapéuticos."
+      question: "¿Realizan consultas psicológicas online?",
+      answer: "Sí, brindamos sesiones de terapia online a través de plataformas seguras que garantizan la confidencialidad de las consultas. La terapia virtual es tan efectiva como la presencial y ofrece mayor flexibilidad horaria y comodidad para nuestros pacientes."
     },
     {
-      question: "¿La información compartida es confidencial?",
-      answer: "Absolutamente. Respetamos estrictamente el secreto profesional y la confidencialidad de toda la información compartida en las sesiones, salvo en casos excepcionales donde exista riesgo vital."
+      question: "¿Con qué frecuencia se realizan las sesiones de terapia?",
+      answer: "Generalmente se recomienda una sesión semanal al inicio del tratamiento psicológico. A medida que avanza el proceso terapéutico, la frecuencia puede ajustarse según las necesidades individuales y los objetivos terapéuticos de cada paciente."
+    },
+    {
+      question: "¿Cómo garantizan la confidencialidad en las sesiones?",
+      answer: "Respetamos estrictamente el secreto profesional y la confidencialidad de toda la información compartida en las sesiones de terapia, cumpliendo con las normas éticas y legales de la práctica psicológica. Solo en casos excepcionales donde exista riesgo vital, podría ser necesario romper la confidencialidad."
     }
   ];
 
@@ -72,12 +86,30 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white" ref={sectionRef}>
+    <section 
+      id="faq" 
+      className="py-16 md:py-24 bg-white" 
+      ref={sectionRef}
+      aria-label="Preguntas frecuentes sobre nuestros servicios"
+      itemScope
+      itemType="https://schema.org/FAQPage"
+    >
       <div className="container">
-        <h2 className={`text-3xl md:text-4xl font-semibold mb-8 text-center text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Preguntas Frecuentes
-        </h2>
-        <div className="max-w-3xl mx-auto">
+        <header className="text-center mb-8">
+          <h2 
+            className={`text-3xl md:text-4xl font-semibold text-brand-primary transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          >
+            Preguntas Frecuentes sobre Terapia Psicológica
+          </h2>
+          <p className="mt-4 text-lg text-brand-darkLight">
+            Resolvemos tus dudas sobre nuestros servicios de atención psicológica
+          </p>
+        </header>
+        <div 
+          className="max-w-3xl mx-auto"
+          role="list"
+          aria-label="Lista de preguntas frecuentes"
+        >
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}

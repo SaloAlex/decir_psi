@@ -24,9 +24,11 @@ interface SpecialtyCardProps {
 
 const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ title, description, imageSrc, imageAlt, delay, isVisible }) => {
   return (
-    <div 
+    <article 
       className={`bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-soft transition-all duration-700 hover:shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 hover:bg-gradient-to-b hover:from-white hover:to-brand-secondary/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${delay * 100}ms` }}
+      itemScope
+      itemType="http://schema.org/Service"
     >
       <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 sm:mb-6 overflow-hidden rounded-full transition-transform duration-300 hover:scale-105 shadow-md">
         <img 
@@ -34,11 +36,14 @@ const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ title, description, image
           alt={imageAlt} 
           className="w-full h-full object-cover"
           loading="lazy"
+          itemProp="image"
         />
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-brand-primary">{title}</h3>
-      <p className="text-sm sm:text-base text-brand-darkLight">{description}</p>
-    </div>
+      <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-brand-primary" itemProp="name">{title}</h3>
+      <p className="text-sm sm:text-base text-brand-darkLight" itemProp="description">{description}</p>
+      <meta itemProp="provider" content="Decir Psi" />
+      <meta itemProp="areaServed" content="Buenos Aires, Argentina" />
+    </article>
   );
 };
 
@@ -48,58 +53,58 @@ const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      title: "Adultos",
-      description: "Apoyamos a los adultos en la gestión de sus emociones y en la búsqueda de un equilibrio personal y profesional.",
+      title: "Psicología para Adultos",
+      description: "Terapia psicológica para adultos enfocada en la gestión de emociones, ansiedad, depresión y desarrollo personal. Atención profesional en Buenos Aires.",
       imageSrc: imgAdultos,
-      imageAlt: "Adulto en meditación"
+      imageAlt: "Terapia psicológica para adultos en Buenos Aires"
     },
     {
-      title: "Adolescencia",
-      description: "Ofrecemos apoyo a adolescentes en su desarrollo personal y social, ayudándolos a enfrentar los desafíos de esta etapa.",
+      title: "Psicología para Adolescentes",
+      description: "Acompañamiento terapéutico especializado para adolescentes, abordando temas de identidad, relaciones, y desarrollo emocional.",
       imageSrc: imgAdolescencia,
-      imageAlt: "Adolescente en reflexión"
+      imageAlt: "Atención psicológica para adolescentes"
     },
     {
-      title: "Niñez",
-      description: "Brindamos orientación para el desarrollo emocional y social de los niños, promoviendo un entorno seguro y positivo.",
+      title: "Psicología Infantil",
+      description: "Atención psicológica especializada en niños, facilitando su desarrollo emocional y social en un ambiente seguro y adaptado.",
       imageSrc: imgNinez,
-      imageAlt: "Niño jugando"
+      imageAlt: "Psicología infantil y terapia para niños"
     },
     {
-      title: "Orientación a padres",
-      description: "Apoyamos a los padres en la crianza y educación de sus hijos, ofreciendo herramientas para mejorar la comunicación y el entendimiento.",
+      title: "Orientación a Padres",
+      description: "Asesoramiento profesional para padres, brindando herramientas y estrategias para la crianza y el desarrollo familiar saludable.",
       imageSrc: imgOrientacionPadres,
-      imageAlt: "Padres con su hijo"
+      imageAlt: "Orientación psicológica para padres"
     },
     {
-      title: "Tercera edad",
-      description: "Ofrecemos apoyo a personas mayores para mejorar su calidad de vida y enfrentar los cambios propios de esta etapa.",
+      title: "Psicología para Adultos Mayores",
+      description: "Atención especializada para adultos mayores, enfocada en el bienestar emocional y la adaptación a los cambios vitales.",
       imageSrc: imgTerceraEdad,
-      imageAlt: "Persona mayor sonriendo"
+      imageAlt: "Atención psicológica para adultos mayores"
     },
     {
-      title: "Terapia Virtual",
-      description: "Brindamos atención psicológica online profesional y confidencial, adaptándonos a tu horario y ubicación. Una alternativa flexible y efectiva para tu bienestar emocional.",
+      title: "Terapia Online",
+      description: "Consultas psicológicas virtuales profesionales, accesibles desde cualquier lugar, manteniendo la calidad y confidencialidad del tratamiento.",
       imageSrc: imgTerapiaVirtual,
-      imageAlt: "Terapia en línea"
+      imageAlt: "Sesiones de terapia psicológica online"
     },
     {
-      title: "Trastornos de la conducta alimentaria",
-      description: "Ofrecemos apoyo para superar trastornos alimentarios, promoviendo una relación saludable con la comida.",
+      title: "Trastornos Alimentarios",
+      description: "Tratamiento especializado en trastornos de la conducta alimentaria, con enfoque integral y multidisciplinario.",
       imageSrc: imgAlimentaria,
-      imageAlt: "Persona con trastorno alimentario"
+      imageAlt: "Tratamiento de trastornos alimentarios"
     },
     {
-      title: "Terapia de pareja",
-      description: "Ayudamos a las parejas a mejorar su comunicación y resolver conflictos, fortaleciendo su relación.",
+      title: "Terapia de Pareja",
+      description: "Acompañamiento profesional para parejas, mejorando la comunicación y fortaleciendo el vínculo emocional.",
       imageSrc: imgTerapiaPareja,
-      imageAlt: "Pareja comunicándose"
+      imageAlt: "Terapia de pareja en Buenos Aires"
     },
     {
-      title: "Familia",
-      description: "Ofrecemos terapia familiar para mejorar la dinámica y comunicación entre los miembros de la familia.",
+      title: "Terapia Familiar",
+      description: "Intervención terapéutica familiar, facilitando la comunicación y resolución de conflictos en el sistema familiar.",
       imageSrc: imgFamilia,
-      imageAlt: "Familia feliz"
+      imageAlt: "Terapia familiar sistémica"
     }
   ];
 
@@ -116,19 +121,36 @@ const SpecialtiesSection = () => {
   };
 
   return (
-    <section id="specialties" className="py-12 sm:py-16 md:py-24 bg-brand-secondary/50 relative" ref={sectionRef}>
+    <section 
+      id="specialties" 
+      className="py-12 sm:py-16 md:py-24 bg-brand-secondary/50 relative" 
+      ref={sectionRef}
+      aria-label="Especialidades y servicios psicológicos"
+      itemScope
+      itemType="http://schema.org/MedicalOrganization"
+    >
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-brand-background/20 rounded-full blur-2xl"></div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-brand-background/20 rounded-full blur-2xl" aria-hidden="true"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-40 sm:h-40 bg-brand-accent/20 rounded-full blur-2xl" aria-hidden="true"></div>
       
       <div className="container relative z-10 px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary mb-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Nos especializamos en</h2>
-          <div className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
-        </div>
+        <header className="text-center mb-8 sm:mb-12">
+          <h2 
+            className={`text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-primary mb-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            itemProp="name"
+          >
+            Servicios de Atención Psicológica
+          </h2>
+          <div 
+            className={`w-20 sm:w-24 h-1 bg-brand-primary mx-auto mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+            aria-hidden="true"
+          ></div>
+          <meta itemProp="medicalSpecialty" content="Psicología Clínica" />
+          <meta itemProp="address" content="Buenos Aires, Argentina" />
+        </header>
 
         {/* Desktop View */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8" itemProp="availableService">
           {specialties.map((specialty, index) => (
             <SpecialtyCard
               key={index}
@@ -143,7 +165,7 @@ const SpecialtiesSection = () => {
         </div>
 
         {/* Mobile View */}
-        <div className="block md:hidden">
+        <div className="block md:hidden" role="region" aria-label="Carrusel de especialidades">
           <div className="relative px-4 sm:px-6">
             <div className="flex justify-center">
               <div className="w-full max-w-sm">
@@ -161,29 +183,31 @@ const SpecialtiesSection = () => {
             <button 
               onClick={prevSlide}
               className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md hover:bg-brand-secondary/20 transition-colors duration-300"
-              aria-label="Anterior especialidad"
+              aria-label="Ver especialidad anterior"
             >
-              <ChevronLeft size={24} className="text-brand-primary" />
+              <ChevronLeft size={24} className="text-brand-primary" aria-hidden="true" />
             </button>
             <button 
               onClick={nextSlide}
               className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md hover:bg-brand-secondary/20 transition-colors duration-300"
-              aria-label="Siguiente especialidad"
+              aria-label="Ver siguiente especialidad"
             >
-              <ChevronRight size={24} className="text-brand-primary" />
+              <ChevronRight size={24} className="text-brand-primary" aria-hidden="true" />
             </button>
           </div>
 
           {/* Dots navigation */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {specialties.map((_, index) => (
+          <div className="flex justify-center mt-4 space-x-2" role="tablist">
+            {specialties.map((specialty, index) => (
               <button 
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index ? 'bg-brand-primary w-4' : 'bg-brand-accent/50'
                 }`}
-                aria-label={`Ir a especialidad ${index + 1}`}
+                aria-label={`Ver ${specialty.title}`}
+                aria-selected={currentIndex === index}
+                role="tab"
               />
             ))}
           </div>
@@ -191,8 +215,8 @@ const SpecialtiesSection = () => {
 
         {/* Mensaje final */}
         <div className="text-center mt-8">
-          <p className="text-base sm:text-lg italic text-brand-dark bg-white/80 p-4 rounded-md shadow-lg border-2 border-brand-primary">
-            Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso.
+          <p className="text-base sm:text-lg italic text-brand-dark bg-white/80 p-4 rounded-md shadow-lg border-2 border-brand-primary" itemProp="slogan">
+            Si estás pasando por una situación de angustia, frustración o estrés, pedir ayuda es el primer paso hacia tu bienestar emocional.
           </p>
         </div>
       </div>

@@ -1,6 +1,21 @@
 import { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'event' | 'config' | 'js',
+      action: string | Date,
+      params?: {
+        send_to?: string;
+        value?: number;
+        currency?: string;
+        transaction_id?: string;
+      }
+    ) => void;
+  }
+}
+
 const FloatingWhatsApp = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
@@ -17,12 +32,7 @@ const FloatingWhatsApp = () => {
   
   const handleWhatsAppClick = () => {
     try {
-      const whatsappWindow = window.open('https://wa.me/5491158846134?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.', '_blank');
-      
-      if (whatsappWindow === null) {
-        throw new Error('El navegador bloqueó la apertura de la ventana');
-      }
-      
+      window.location.href = '/gracias';
       setIsTooltipVisible(false);
       setErrorMessage(null);
     } catch {
