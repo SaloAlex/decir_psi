@@ -9,7 +9,7 @@ const Gracias = () => {
     if (typeof window !== 'undefined' && window.gtag) {
       try {
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17289526191/FsqPCL2xj-caEK_3pLRA',
+          'send_to': 'AW-17293564881',
           'value': 1.0,
           'currency': 'ARS',
           // @ts-expect-error - Google Ads types no incluyen event_callback pero es una propiedad válida
