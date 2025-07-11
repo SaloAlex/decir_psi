@@ -16,6 +16,8 @@ declare global {
   }
 }
 
+const WHATSAPP_URL = 'https://wa.me/5491133993121?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.';
+
 const FloatingWhatsApp = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
@@ -32,10 +34,22 @@ const FloatingWhatsApp = () => {
   
   const handleWhatsAppClick = () => {
     try {
-      window.location.href = '/gracias';
+      // Registrar la conversión directamente
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17293564881/v6HNCN-xnu4aENG3m7ZA',
+          'value': 1.0,
+          'currency': 'ARS',
+        });
+      }
+
       setIsTooltipVisible(false);
       setErrorMessage(null);
-    } catch {
+
+      // Abrir WhatsApp en una nueva pestaña
+      window.open(WHATSAPP_URL, '_blank');
+    } catch (error) {
+      console.error('Error al registrar la conversión:', error);
       setErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta de nuevo o contáctanos por otro medio.');
       setTimeout(() => setErrorMessage(null), 5000);
     }
