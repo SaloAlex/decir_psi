@@ -57,7 +57,7 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "¿Qué tipo de servicio psicológico ofrecen?",
-      answer: "Brindamos atención psicológica privada con un equipo de profesionales matriculados y especializados. Nuestro servicio se caracteriza por ofrecer un tratamiento personalizado, adaptado a las necesidades específicas de cada paciente, en un marco de profesionalismo y confidencialidad."
+      answer: "Nuestro servicio se caracteriza por ofrecer un tratamiento personalizado, adaptado a las necesidades específicas de cada paciente, en un marco de profesionalismo y confidencialidad."
     },
     {
       question: "¿Cuánto dura una sesión de terapia psicológica?",
@@ -65,19 +65,15 @@ const FAQSection = () => {
     },
     {
       question: "¿Cuál es el costo de una sesión de terapia?",
-      answer: "Los honorarios se establecen según el tipo de terapia y el profesional tratante. Trabajamos con las principales obras sociales y prepagas. Contáctanos por WhatsApp para recibir información detallada sobre tarifas actualizadas y opciones de cobertura."
-    },
-    {
-      question: "¿Realizan consultas psicológicas online?",
-      answer: "Sí, brindamos sesiones de terapia online a través de plataformas seguras que garantizan la confidencialidad de las consultas. La terapia virtual es tan efectiva como la presencial y ofrece mayor flexibilidad horaria y comodidad para nuestros pacientes."
+      answer: "Contáctanos y te pasamos la info de los honorarios."
     },
     {
       question: "¿Con qué frecuencia se realizan las sesiones de terapia?",
-      answer: "Generalmente se recomienda una sesión semanal al inicio del tratamiento psicológico. A medida que avanza el proceso terapéutico, la frecuencia puede ajustarse según las necesidades individuales y los objetivos terapéuticos de cada paciente."
+      answer: "La frecuencia se ajusta de acuerdo a las necesidades individuales y los objetivos de cada paciente."
     },
     {
       question: "¿Cómo garantizan la confidencialidad en las sesiones?",
-      answer: "Respetamos estrictamente el secreto profesional y la confidencialidad de toda la información compartida en las sesiones de terapia, cumpliendo con las normas éticas y legales de la práctica psicológica. Solo en casos excepcionales donde exista riesgo vital, podría ser necesario romper la confidencialidad."
+      answer: "Respetamos estrictamente el secreto profesional y la confidencialidad de toda la información compartida en las sesiones de terapia, cumpliendo con las normas éticas y legales de la práctica psicológica."
     }
   ];
 
