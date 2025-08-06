@@ -92,11 +92,11 @@ const ContactSection = () => {
               />
             </div>
             <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brand-primary">WhatsApp</h3>
-            <p className="text-2xl font-bold text-brand-highlight" itemProp="telephone">+54 9 11 3399-3121</p>
+            <p className="text-2xl font-bold text-brand-highlight" itemProp="telephone">+54 9 11 3491-0754</p>
             <meta itemProp="contactType" content="WhatsApp" />
             <meta itemProp="availableLanguage" content="Spanish" />
             <a 
-              href="https://wa.me/5491133993121" 
+              href="https://wa.me/5491134910754" 
               target="_blank" 
               rel="noopener noreferrer" 
               onClick={handleWhatsAppClick}

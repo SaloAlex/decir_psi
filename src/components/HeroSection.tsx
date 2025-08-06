@@ -51,7 +51,7 @@ const HeroSection = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 transition-all duration-700 ease-out" style={{ transitionDelay: '400ms' }}>
             <a 
-              href="https://wa.me/5491133993121" 
+              href="https://wa.me/5491134910754" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center justify-center bg-brand-secondary text-brand-primary font-medium py-3 sm:py-2.5 px-6 sm:px-6 rounded-full 

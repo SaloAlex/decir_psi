@@ -1,38 +1,31 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Google tag (gtag.js) -->
+
+    <!-- Google Ads (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17293564881"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
-
-      /* Ads conversion (ya existente) */
       gtag('config', 'AW-17293564881');
-
-      /* Si usas GA4, descomenta y pon tu ID
-      gtag('config', 'G-XXXXXXXXXX');
-      */
+      /* Si usas GA4 directo, descomenta y coloca tu ID:
+         gtag('config', 'G-XXXXXXXXXX'); */
     </script>
 
+    <!-- SEO básicos -->
     <title>Decir Psi | Atención Psicológica Profesional en Buenos Aires</title>
     <meta name="description" content="Centro de atención psicológica en Buenos Aires. Terapia individual, familiar y de pareja, presencial u online, con primera consulta sin cargo." />
     <meta name="keywords" content="psicólogos buenos aires, terapia psicológica, salud mental, psicología online, atención psicológica, terapia familiar, terapia de pareja, psicología infantil, tratamiento ansiedad, tratamiento depresión, trastornos alimentarios" />
     <meta name="author" content="Decir Psi" />
     <meta name="robots" content="index, follow" />
-    <meta name="geo.region" content="AR-C" />
-    <meta name="geo.placename" content="Buenos Aires" />
-    <meta name="geo.position" content="-34.603722;-58.381592" />
-    <meta name="ICBM" content="-34.603722, -58.381592" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://decirpsi.com.ar" />
+    <meta property="og:url" content="https://decirpsi.com.ar/" />
     <meta property="og:title" content="Decir Psi | Atención Psicológica Profesional en Buenos Aires" />
     <meta property="og:description" content="Centro de atención psicológica en Buenos Aires. Equipo de profesionales especializados en terapia individual, familiar y de pareja. Consultas presenciales y online." />
     <meta property="og:image" content="https://decirpsi.com.ar/og-image.png" />
@@ -44,80 +37,68 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://decirpsi.com.ar" />
+    <meta name="twitter:url" content="https://decirpsi.com.ar/" />
     <meta name="twitter:title" content="Decir Psi | Atención Psicológica Profesional en Buenos Aires" />
     <meta name="twitter:description" content="Centro de atención psicológica en Buenos Aires. Equipo de profesionales especializados en terapia individual, familiar y de pareja. Consultas presenciales y online." />
     <meta name="twitter:image" content="https://decirpsi.com.ar/og-image.png" />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://decirpsi.com.ar" />
+    <link rel="canonical" href="https://decirpsi.com.ar/" />
+
+    <!-- Google Search Console (reemplaza por tu token real si corresponde) -->
+    <meta name="google-site-verification" content="abcdefg123456789" />
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Schema.org -->
+    <!-- Schema.org: Organización médica -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        "name": "Decir Psi",
-        "image": "https://decirpsi.com.ar/logo.svg",
-        "description": "Centro de atención psicológica en Buenos Aires. Equipo de profesionales especializados en terapia individual, familiar y de pareja.",
-        "@id": "https://decirpsi.com.ar",
-        "url": "https://decirpsi.com.ar",
-        "telephone": "+54-911-3399-3121",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Buenos Aires",
-          "addressRegion": "CABA",
-          "addressCountry": "AR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -34.603722,
-          "longitude": -58.381592
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "20:00"
-        },
-        "sameAs": [
-          "https://wa.me/5491133993121"
-        ],
-        "priceRange": "$$",
-        "medicalSpecialty": [
-          "Psicología Clínica",
-          "Terapia Individual",
-          "Terapia de Pareja",
-          "Terapia Familiar",
-          "Psicología Infantil"
-        ]
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "@id": "https://decirpsi.com.ar/#organization",
+      "name": "Decir Psi",
+      "url": "https://decirpsi.com.ar/",
+      "logo": "https://decirpsi.com.ar/logo.svg",
+      "image": "https://decirpsi.com.ar/og-image.png",
+      "description": "Centro de atención psicológica en Buenos Aires. Equipo de profesionales especializados en terapia individual, familiar y de pareja.",
+      "telephone": "+54-911-3491-0754",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressRegion": "CABA",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -34.603722,
+        "longitude": -58.381592
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      }],
+              "sameAs": [
+        "https://wa.me/5491134910754"
+      ],
+      "medicalSpecialty": [
+        "Psicología Clínica",
+        "Terapia Individual",
+        "Terapia de Pareja",
+        "Terapia Familiar",
+        "Psicología Infantil"
+      ]
+    }
     </script>
-
-    <!-- Search Console -->
-    <meta name="google-site-verification" content="abcdefg123456789" />
-    <!-- Otros metadatos -->
-    <meta name="format-detection" content="telephone=yes" />
-    <meta name="rating" content="general" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="target" content="all" />
-    <meta name="audience" content="all" />
-    <meta name="coverage" content="Worldwide" />
-    <meta name="distribution" content="Global" />
   </head>
   <body>
     <div id="root"></div>
+    <!-- Entrada de Vite: dejar así en el código fuente.
+         En build, Vite lo reemplaza por /assets/index-<hash>.js -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

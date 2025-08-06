@@ -60,7 +60,7 @@ const AboutSection = () => {
             </div>
             <div className="mt-8 sm:mt-10">
               <a 
-                href="https://wa.me/5491133993121" 
+                href="https://wa.me/5491134910754" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center justify-center bg-brand-marron text-white font-medium py-3 sm:py-2.5 px-6 sm:px-6 rounded-full 

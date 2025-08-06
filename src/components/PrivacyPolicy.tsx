@@ -77,7 +77,7 @@ const PrivacyPolicy = () => {
               Para ejercer sus derechos o realizar consultas sobre esta política de privacidad, puede contactarnos a través de:
             </p>
             <ul className="list-disc pl-6 mt-2">
-              <li>WhatsApp: +54 9 11 3399-3121</li>
+              <li>WhatsApp: +54 9 11 3491-0754</li>
             </ul>
           </section>
 

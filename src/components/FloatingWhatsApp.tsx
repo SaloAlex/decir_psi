@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-const WHATSAPP_URL = 'https://wa.me/5491133993121?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.';
+const WHATSAPP_URL = 'https://wa.me/5491134910754?text=Hola,%20estoy%20interesado/a%20en%20agendar%20una%20consulta.';
 
 const FloatingWhatsApp = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
